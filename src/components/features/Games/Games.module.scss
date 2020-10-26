@@ -1,0 +1,17 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  margin-top: 95px;
+  padding: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.options {
+  flex: 25%;
+  margin-right: 30px;
+}
+
+.games {
+  flex: 65%;
+}
