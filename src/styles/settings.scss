@@ -14,6 +14,8 @@ $transition: 1s All;
 
 $logo-font-size: 45px;
 
+$border-width: 1px;
+
 /* colors */
 $white: #ffffff;
 $grey: #808080;
@@ -27,3 +29,7 @@ $text-color: $white;
 // TOP BAR
 $topBar-text-color: $grey;
 $topBar-hover-link-text-color: $white;
+
+// SPLASH
+$splash-after-bg-color: $black;
+$splash-border-color: $white;
