@@ -1,4 +1,6 @@
 {
-  "homePageTitle": "Games for life",
-  "homePageImage": "./images/splash_img.jpg"
+  "homepage": {
+    "homepageTitle": "Games for life",
+    "homepageImage": "./images/splash_img.jpg"
+  }
 }
