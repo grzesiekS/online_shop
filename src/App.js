@@ -1,11 +1,10 @@
 import React from 'react';
 
 import './styles/global.scss';
+import MainLayout from './components/layout/MainLayout/MainLayout';
 
 const App = () => (
-  <div>
-    <h1>React App</h1>
-  </div>
+  <MainLayout />
 );
 
 export default App;

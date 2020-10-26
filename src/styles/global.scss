@@ -1,0 +1,13 @@
+@import "./settings.scss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $text-font-family;
+  font-weight: $text-font-weight;
+  margin: 0;
+  background-color: $bg-color;
+  color: $text-color;
+}
