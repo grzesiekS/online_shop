@@ -1,6 +1,11 @@
 @import "../../../styles/settings.scss";
 
 .container {
+  max-width: $container-max-width;
+  margin: auto;
+}
+
+.splash {
   margin-top: 50px;
   height: 300px;
   position: relative;
@@ -20,19 +25,24 @@
 
 .title {
   position: absolute;
-  top: 50%;
-  left: 2%;
-  transform: translateY(-50%);
   z-index: 2;
   font-family: $title-font-family;
   font-size: $title-font-size;
   margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .image {
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+
+@media (max-width: 1280px) {
+  .title {
+    margin-left: 35px;
+  }
 }
 
 @media (max-width: 411px) {
