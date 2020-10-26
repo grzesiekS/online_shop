@@ -1,12 +1,12 @@
 import {combineReducers, createStore} from 'redux';
 
-import globalData from '../data/global.json';
+import mainData from '../data/main.json';
 
 import globalReducer from './globalRedux';
 
 
 const initialState = {
-  global: globalData,
+  main: mainData,
 };
 
 // define reducers
