@@ -3,27 +3,27 @@
   [
     {
       "_id": "1",
-      "genre": "rpg"
+      "name": "rpg"
     },
     {
       "_id": "2",
-      "genre": "action"
+      "name": "action"
     },
     {
       "_id": "3",
-      "genre": "shooter"
+      "name": "shooter"
     },
     {
       "_id": "4",
-      "genre": "rts"
+      "name": "rts"
     },
     {
       "_id": "5",
-      "genre": "adventure"
+      "name": "adventure"
     },
     {
       "_id": "6",
-      "genre": "mmorpg"
+      "name": "mmorpg"
     }
   ]
 }
