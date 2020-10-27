@@ -10,7 +10,7 @@ const OptionCheckboxes = ({values, currentValue, setOptionValue}) => (
         <input
           type='checkbox'
           value={value._id}
-          checked={currentValue.indexOf(value._id) !== -1 ? true : false}
+          // checked={currentValue.indexOf(value._id) !== -1 ? true : false}
         />
         {value.name}
       </label>
