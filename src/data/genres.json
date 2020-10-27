@@ -1,0 +1,29 @@
+{
+  "data":
+  [
+    {
+      "_id": "1",
+      "genre": "rpg"
+    },
+    {
+      "_id": "2",
+      "genre": "action"
+    },
+    {
+      "_id": "3",
+      "genre": "shooter"
+    },
+    {
+      "_id": "4",
+      "genre": "rts"
+    },
+    {
+      "_id": "5",
+      "genre": "adventure"
+    },
+    {
+      "_id": "6",
+      "genre": "mmorpg"
+    }
+  ]
+}

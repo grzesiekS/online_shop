@@ -1,7 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .container {
-  margin-top: 95px;
+  max-width: $container-max-width;
+  margin: 95px auto 0 auto;
   padding: 0 30px;
   display: flex;
   flex-wrap: wrap;

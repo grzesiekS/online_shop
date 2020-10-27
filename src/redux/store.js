@@ -1,12 +1,14 @@
 import {combineReducers, createStore} from 'redux';
 
 import mainData from '../data/main.json';
+import genresData from '../data/genres.json';
 
 import globalReducer from './globalRedux';
 import mainReducer from './mainRedux';
 
 const initialState = {
   main: mainData,
+  genres: genresData,
 };
 
 // define reducers
