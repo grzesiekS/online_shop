@@ -9,23 +9,29 @@ const optionTypes = {
   checkboxes: OptionCheckboxes,
 };
 
-const Option = ({type, name, ...otherProps}) => {
-  const OptionComponent = optionTypes[type];
+class Option extends React.Component {
 
-  if(!OptionComponent) {
-    return null;
-  } else {
-    return (
-      <div className={styles.option}>
-        <h1 className={styles.title}>{name}</h1>
-        <OptionComponent {...otherProps} />
-      </div>
-    );
+  render() {
+    const {type, name, ...otherProps} = this.props;
+
+    const OptionComponent = optionTypes[type];
+
+    if(!OptionComponent) {
+      return null;
+    } else {
+      return (
+        <div className={styles.option}>
+          <h2 className={styles.title}>{name}</h2>
+          <OptionComponent {...otherProps} />
+        </div>
+      );
+    }
   }
-};
+}
 
 Option.propTypes = {
   name: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default Option;
