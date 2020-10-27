@@ -1,5 +1,9 @@
 @import "./settings.scss";
 
+*, :after, :before {
+  box-sizing: inherit;
+}
+
 html {
   scroll-behavior: smooth;
 }
