@@ -5,6 +5,7 @@ import genresData from '../data/genres.json';
 
 import globalReducer from './globalRedux';
 import mainReducer from './mainRedux';
+import genresReducer from './genresRedux';
 
 const initialState = {
   main: mainData,
@@ -14,6 +15,7 @@ const initialState = {
 // define reducers
 const reducers = {
   main: mainReducer,
+  genres: genresReducer,
 };
 
 // add blank reducers for initial state properties without reducers
