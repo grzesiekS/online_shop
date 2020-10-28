@@ -64,9 +64,11 @@
 
 .arrow {
   font-size: 20px;
+  animation: rotateBack $animationTime;
+  animation-fill-mode: forwards;
 
   &.active {
-    animation: rotate 0.5s;
+    animation: rotate $animationTime;
     animation-fill-mode: forwards;
   }
 

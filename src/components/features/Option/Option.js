@@ -34,7 +34,7 @@ class Option extends React.Component {
       return null;
     } else {
       return (
-        <div className={this.state.active ? clsx(styles.option, styles.active) : clsx(styles.option)}>
+        <div className={styles.option}>
           <div className={styles.flexBox}>
             <h2 className={styles.title}>{name}</h2>
             <FontAwesomeIcon
