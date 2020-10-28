@@ -52,7 +52,7 @@
 
 .option {
   padding: 0 20px 20px 20px;
-  border: $border-width solid white;
+  border: $border-width solid $option-border-color;
 }
 
 .flexBox {
