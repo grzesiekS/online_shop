@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
 
-import { getGenresData } from '../../../redux/genresRedux';
+import { getGenresData, getSelectedGenres, selectGenres } from '../../../redux/genresRedux';
 
 import Games from './Games';
 
 const mapStateToProps = state => ({
   genres: getGenresData(state),
+  selectedGenres: getSelectedGenres(state),
 });
 
-export default connect(mapStateToProps)(Games);
+const mapDispatchToProps = dispatch => ({
+  selectGenres: id => dispatch(selectGenres(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Games);
