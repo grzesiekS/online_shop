@@ -49,3 +49,22 @@
     }
   }
 }
+
+.option {
+  padding: 0 20px 20px 20px;
+  border: $border-width solid white;
+}
+
+.flexBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  font-size: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

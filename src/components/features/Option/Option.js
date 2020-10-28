@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+
 import styles from './Option.module.scss';
 
 import OptionCheckboxes from './OptionCheckboxes';
@@ -21,7 +24,10 @@ class Option extends React.Component {
     } else {
       return (
         <div className={styles.option}>
-          <h2 className={styles.title}>{name}</h2>
+          <div className={styles.flexBox}>
+            <h2 className={styles.title}>{name}</h2>
+            <FontAwesomeIcon icon={faChevronDown} className={styles.arrow}/>
+          </div>
           <OptionComponent {...otherProps} />
         </div>
       );
