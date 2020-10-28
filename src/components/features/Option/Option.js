@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Option.module.scss';
 
@@ -38,7 +38,7 @@ class Option extends React.Component {
           <div className={styles.flexBox}>
             <h2 className={styles.title}>{name}</h2>
             <FontAwesomeIcon
-              icon={faChevronUp}
+              icon={faChevronDown}
               className={this.state.active ? clsx(styles.arrow, styles.active) : clsx(styles.arrow)}
               onClick={() => this.changeActiveState()}
             />
