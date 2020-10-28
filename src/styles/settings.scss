@@ -10,11 +10,15 @@ $text-font-weight: 700;
 $title-font-family: 'Staatliches', cursive;
 $title-font-size: 54px;
 
-$transition: 1s All;
+$transition: all 1s;
+$shortTransition: all 0.5s;
+$animationTime: 2s;
 
 $logo-font-size: 45px;
 
 $border-width: 1px;
+
+$maxHight-option: 500px;
 
 /* colors */
 $white: #ffffff;

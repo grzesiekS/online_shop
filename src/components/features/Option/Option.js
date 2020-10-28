@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Option.module.scss';
 
@@ -13,6 +14,16 @@ const optionTypes = {
 };
 
 class Option extends React.Component {
+  state = {
+    active: false,
+  }
+
+  changeActiveState = () => {
+    this.setState({
+      ...this.state,
+      active: !this.state.active,
+    });
+  }
 
   render() {
     const {type, name, ...otherProps} = this.props;
@@ -23,12 +34,18 @@ class Option extends React.Component {
       return null;
     } else {
       return (
-        <div className={styles.option}>
+        <div className={this.state.active ? clsx(styles.option, styles.active) : clsx(styles.option)}>
           <div className={styles.flexBox}>
             <h2 className={styles.title}>{name}</h2>
-            <FontAwesomeIcon icon={faChevronDown} className={styles.arrow}/>
+            <FontAwesomeIcon
+              icon={faChevronUp}
+              className={this.state.active ? clsx(styles.arrow, styles.active) : clsx(styles.arrow)}
+              onClick={() => this.changeActiveState()}
+            />
           </div>
-          <OptionComponent {...otherProps} />
+          <div className={this.state.active ? clsx(styles.optionComponent, styles.active) : clsx(styles.optionComponent)}>
+            <OptionComponent {...otherProps} />
+          </div>
         </div>
       );
     }
