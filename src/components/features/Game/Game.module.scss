@@ -5,6 +5,20 @@
   margin-bottom: 25px;
 }
 
+.title, .price {
+  margin-left: 10px;
+  transition: $shortTransition;
+}
+
+.title {
+  font-family: $title-font-family;
+  text-transform: uppercase;
+}
+
+.highlight {
+  font-size: 22px;
+}
+
 .game {
   border: $border-width solid $game-border-color;
   transition: $shortTransition;
@@ -23,18 +37,13 @@
     img {
       opacity: 0.3;
     }
+
+    .title {
+      font-size: 28px;
+    }
+
+    .price {
+      font-size: 22px;
+    }
   }
-}
-
-.title, .price {
-  margin-left: 10px;
-}
-
-.title {
-  font-family: $title-font-family;
-  text-transform: uppercase;
-}
-
-.highlight {
-  font-size: 22px;
 }
