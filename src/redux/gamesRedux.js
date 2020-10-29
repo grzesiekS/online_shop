@@ -1,7 +1,7 @@
 /* SELECTORS */
 
 export const getGamesData = ({games}) => games.data;
-export const getRandomGameImage = ({games}) => games.data.photos[Math.floor(Math.random() * games.data.photos.length)];
+// export const getRandomGameImage = ({games}) => games.data.photos[Math.floor(Math.random() * games.data.photos.length)];
 
 /* ACTIONS */
 
