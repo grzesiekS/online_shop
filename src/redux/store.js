@@ -7,6 +7,7 @@ import gamesData from '../data/games.json';
 import globalReducer from './globalRedux';
 import mainReducer from './mainRedux';
 import genresReducer from './genresRedux';
+import gamesReducer from './gamesRedux';
 
 const initialState = {
   main: mainData,
@@ -18,6 +19,7 @@ const initialState = {
 const reducers = {
   main: mainReducer,
   genres: genresReducer,
+  games: gamesReducer,
 };
 
 // add blank reducers for initial state properties without reducers
