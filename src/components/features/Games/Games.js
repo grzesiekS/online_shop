@@ -18,10 +18,12 @@ const Games = props => (
       />
     </div>
     <div className={styles.games}>
-      <h2>Games</h2>
-      {props.games.map(game => (
-        <Game key={game._id} name={game.name} price={game.price} images={game.photos} />
-      ))}
+      <h2 className={styles.title}>Games</h2>
+      <div className={styles.flexBox}>
+        {props.games.map(game => (
+          <Game key={game._id} name={game.name} price={game.price} images={game.photos} />
+        ))}
+      </div>
     </div>
   </div>
 );

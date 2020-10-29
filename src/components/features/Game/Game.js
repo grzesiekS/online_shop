@@ -10,9 +10,9 @@ const Game = ({name, images, price, ...otherProps}) => {
   return (
     <div className={styles.container}>
       <div className={styles.game}>
-        <h2 className={styles.title}>{name}</h2>
         <img src={randomImage} alt='Game' />
-        <p className={styles.price}>{price} €</p>
+        <h2 className={styles.title}>{name}</h2>
+        <p className={styles.price}>price start from <span className={styles.highlight}>{price} €</span></p>
       </div>
     </div>
   );

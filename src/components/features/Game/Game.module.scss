@@ -1,0 +1,40 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.game {
+  border: $border-width solid $game-border-color;
+  transition: $shortTransition;
+
+  img {
+    width: $game-image-width;
+    height: $game-image-height;
+    object-fit: cover;
+    transition: $shortTransition;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-width: 2px;
+
+    img {
+      opacity: 0.3;
+    }
+  }
+}
+
+.title, .price {
+  margin-left: 10px;
+}
+
+.title {
+  font-family: $title-font-family;
+  text-transform: uppercase;
+}
+
+.highlight {
+  font-size: 22px;
+}

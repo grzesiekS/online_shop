@@ -13,12 +13,17 @@ $title-font-size: 54px;
 $transition: all 1s;
 $shortTransition: all 0.25s;
 $animationTime: 0.5s;
-
-$logo-font-size: 45px;
-
 $border-width: 1px;
 
+/* settings - top bar */
+$logo-font-size: 45px;
+
+/* settings - option */
 $maxHight-option: 500px;
+
+/* settings - game */
+$game-image-width: 300px;
+$game-image-height: 450px;
 
 /* colors */
 $white: #ffffff;
@@ -43,3 +48,7 @@ $option-border-color: $white;
 $option-input-bg-color: $black;
 $option-input-border-color: $grey;
 $option-checked-border-color: $white;
+
+// GAME
+$game-border-color: $white;
+$game-after-bg-color: $black;

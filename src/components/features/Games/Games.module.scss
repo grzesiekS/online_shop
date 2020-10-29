@@ -15,4 +15,14 @@
 
 .games {
   flex: 75%;
+
+  .title {
+    margin-left: 25px;
+  }
+}
+
+.flexBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
