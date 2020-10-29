@@ -10,4 +10,8 @@ describe('Games component', () => {
     const component = shallow(<Games games={gameArray} />);
     expect(component).toBeTruthy();
   });
+
+  it('should throw an Error if game array is not passed to component', () => {
+    expect(() => shallow(<Games />)).toThrow();
+  });
 });
