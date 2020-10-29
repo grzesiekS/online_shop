@@ -2,6 +2,7 @@ import {combineReducers, createStore} from 'redux';
 
 import mainData from '../data/main.json';
 import genresData from '../data/genres.json';
+import gamesData from '../data/games.json';
 
 import globalReducer from './globalRedux';
 import mainReducer from './mainRedux';
@@ -10,6 +11,7 @@ import genresReducer from './genresRedux';
 const initialState = {
   main: mainData,
   genres: genresData,
+  games: gamesData,
 };
 
 // define reducers
