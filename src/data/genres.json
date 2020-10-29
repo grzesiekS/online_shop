@@ -2,27 +2,27 @@
   "data":
   [
     {
-      "_id": "1",
+      "_id": "5f9a8cc77731ba4584dd385a",
       "name": "rpg"
     },
     {
-      "_id": "2",
+      "_id": "5f9a8cc77731ba4584dd385b",
       "name": "action"
     },
     {
-      "_id": "3",
+      "_id": "5f9a8cc77731ba4584dd385c",
       "name": "shooter"
     },
     {
-      "_id": "4",
+      "_id": "5f9a8cc77731ba4584dd385d",
       "name": "rts"
     },
     {
-      "_id": "5",
+      "_id": "5f9a8cc77731ba4584dd385e",
       "name": "adventure"
     },
     {
-      "_id": "6",
+      "_id": "5f9a8cc77731ba4584dd385f",
       "name": "mmorpg"
     }
   ],
