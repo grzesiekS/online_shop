@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -10,9 +11,9 @@ const TopBar = () => (
     <nav>
       <ul className={styles.navigation}>
         <li>
-          <a href='/#'>
+          <Link to='/'>
             <FontAwesomeIcon icon={faGamepad} className={styles.logo} />
-          </a>
+          </Link>
         </li>
         <li>
           <a href='/#'>
