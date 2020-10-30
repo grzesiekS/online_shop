@@ -21,7 +21,7 @@ const Games = props => (
       <h2 className={styles.title}>Games</h2>
       <div className={styles.flexBox}>
         {props.games.map(game => (
-          <Game key={game._id} name={game.name} price={game.price} images={game.photos} />
+          <Game key={game._id} name={game.name} price={game.price} images={game.photos} id={game._id} />
         ))}
       </div>
     </div>

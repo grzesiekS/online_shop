@@ -3,6 +3,11 @@
 .container {
   position: relative;
   margin-bottom: 25px;
+
+  a {
+    text-decoration: none;
+    color: $game-link-color;
+  }
 }
 
 .title, .price {
