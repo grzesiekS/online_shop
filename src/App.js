@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
 
 import './styles/global.scss';
 import MainLayout from './components/layout/MainLayout/MainLayout';
@@ -9,10 +10,14 @@ import GamePage from './components/views/GamePage/GamePageContainer';
 const App = () => (
   <BrowserRouter>
     <MainLayout>
-      <Switch>
+      <AnimatedSwitch
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 0 }}
+        atActive={{ opacity: 1 }}
+      >
         <Route exact path='/' component={Homepage} />
         <Route exact path='/game/:id' component={GamePage} />
-      </Switch>
+      </AnimatedSwitch>
     </MainLayout>
   </BrowserRouter>
 
