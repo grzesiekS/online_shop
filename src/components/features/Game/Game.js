@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './Game.module.scss';
 
-const Game = ({name, images, price, id, ...otherProps}) => {
+const Game = ({name, images, price, id}) => {
 
   const randomImage = images[Math.floor(Math.random() * images.length)];
 
