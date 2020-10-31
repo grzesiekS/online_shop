@@ -1,0 +1,19 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  max-width: $container-max-width;
+  margin: 100px auto;
+  font-size: $font-size;
+}
+
+.description {
+  padding: 0 $padding-lr;
+  margin-bottom: 50px;
+  text-align: justify;
+}
+
+.price {
+  text-align: right;
+  padding: 0 $padding-lr;
+}
+

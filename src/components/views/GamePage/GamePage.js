@@ -1,9 +1,21 @@
 import React from 'react';
 
-const GamePage = () => (
-  <div>
-    <h2>GamePage</h2>
-  </div>
-);
+import {randomImageSelection} from '../../../utils/randomImage';
+
+import Splash from '../../features/Splash/Splash';
+import GameForm from '../../features/GameForm/GameForm';
+
+const GamePage = ({...props}) => {
+  const {description, genres, name, photos, price} = props.game;
+
+  console.log(photos);
+  const randomImage = randomImageSelection(photos);
+  return (
+    <div>
+      <Splash title={name} image={randomImage} />
+      <GameForm description={description} price={price} />
+    </div>
+  );
+};
 
 export default GamePage;

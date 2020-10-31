@@ -1,7 +1,7 @@
 /* SELECTORS */
 
 export const getGamesData = ({games}) => games.data;
-export const getSelectedGame = ({games}, id) => games.data.filter(game => game._id === id);
+export const getSelectedGame = ({games}, id) => games.data.filter(game => game._id === id)[0];
 
 /* ACTIONS */
 
