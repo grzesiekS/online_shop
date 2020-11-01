@@ -1,0 +1,21 @@
+@import "../../../styles/settings.scss";
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  color: $button-text-color;
+  border: $border-width solid $button-border-color;
+  padding: 18px;
+  transition: $shortTransition;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $button-hover-bg-color;
+    color: $button-hover-text-color;
+  }
+}
+
+.alignRight {
+  float: right;
+}

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import styles from './GameForm.module.scss';
 
+import Button from '../../common/Button/Button';
+
 const GameForm = ({description, price, genres}) => (
   <div className={styles.container}>
     <p>Genres:</p>
@@ -13,6 +15,7 @@ const GameForm = ({description, price, genres}) => (
     </ul>
     <p className={styles.description}>{description}</p>
     <p className={styles.price}>Price: {price} €</p>
+    <Button Type='div' className='alignRight'>Buy it now</Button>
   </div>
 );
 
