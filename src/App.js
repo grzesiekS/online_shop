@@ -7,9 +7,11 @@ import './styles/global.scss';
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import Homepage from './components/views/Homepage/HomepageContainer';
 import GamePage from './components/views/GamePage/GamePageContainer';
+import ScrollToTop from './components/common/ScrollToTop/ScrollToTop';
 
 const App = () => (
   <BrowserRouter>
+    <ScrollToTop />
     <MainLayout>
       <AnimatedSwitch
         atEnter={{ opacity: 0 }}
