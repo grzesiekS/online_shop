@@ -30,4 +30,8 @@ GameForm.propTypes = {
   genres: PropTypes.array,
 };
 
+GameForm.defaultProps = {
+  genres: [],
+};
+
 export default GameForm;
