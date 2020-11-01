@@ -6,14 +6,21 @@
   font-size: $font-size;
 }
 
-.description {
+p {
   padding: 0 $padding-lr;
+}
+
+.description {
   margin-bottom: 50px;
   text-align: justify;
 }
 
 .price {
   text-align: right;
-  padding: 0 $padding-lr;
+}
+
+.genreList {
+  margin-bottom: 105px;
+  padding: 0 80px;
 }
 

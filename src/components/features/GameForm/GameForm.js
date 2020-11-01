@@ -5,6 +5,12 @@ import styles from './GameForm.module.scss';
 
 const GameForm = ({description, price, genres}) => (
   <div className={styles.container}>
+    <p>Genres:</p>
+    <ul className={styles.genreList}>
+      {genres.map(genre => (
+        <li key={genre._id}>{genre.name}</li>
+      ))}
+    </ul>
     <p className={styles.description}>{description}</p>
     <p className={styles.price}>Price: {price} €</p>
   </div>
