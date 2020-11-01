@@ -36,7 +36,7 @@ class PhotoCarousel extends React.Component {
                       :
                       clsx(styles.img)
                   }
-                src={'.' + photo}
+                src={photo}
                 alt='default'
                 onClick={() => this.changeActivePhoto(photos.indexOf(photo))}
               />

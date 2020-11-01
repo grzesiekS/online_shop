@@ -39,7 +39,7 @@ class PhotoDisplay extends React.Component {
 
     return (
       <div className={this.state.photoStyle.join(' ')}>
-        <img className={styles.img} src={'.' + photo} alt='default' />
+        <img className={styles.img} src={photo} alt='default' />
       </div>
     );
   }

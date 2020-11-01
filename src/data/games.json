@@ -5,7 +5,7 @@
       "type": "adventure-rpg",
       "name": "Retro adventure-rpg",
       "price": 50,
-      "photos": ["./images/gamesImg/adventure-rpg/adventure-rpg_1.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_2.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_3.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_4.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_5.jpg"],
+      "photos": ["../images/gamesImg/adventure-rpg/adventure-rpg_1.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_2.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_3.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_4.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385e", "5f9a8cc77731ba4584dd385a"]
     },
@@ -14,7 +14,7 @@
       "type": "action-shooter",
       "name": "Super action-shooter",
       "price": 70,
-      "photos": ["./images/gamesImg/action-shooter/action-shooter_1.jpg", "./images/gamesImg/action-shooter/action-shooter_2.jpg", "./images/gamesImg/action-shooter/action-shooter_3.jpg", "./images/gamesImg/action-shooter/action-shooter_4.jpg", "./images/gamesImg/action-shooter/action-shooter_5.jpg"],
+      "photos": ["../images/gamesImg/action-shooter/action-shooter_1.jpg", "../images/gamesImg/action-shooter/action-shooter_2.jpg", "../images/gamesImg/action-shooter/action-shooter_3.jpg", "../images/gamesImg/action-shooter/action-shooter_4.jpg", "../images/gamesImg/action-shooter/action-shooter_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385b", "5f9a8cc77731ba4584dd385c"]
     },
@@ -23,7 +23,7 @@
       "type": "mmorpg",
       "name": "Fantasy mmorpg",
       "price": 150,
-      "photos": ["./images/gamesImg/mmorpg/mmorpg_1.jpg", "./images/gamesImg/mmorpg/mmorpg_2.jpg", "./images/gamesImg/mmorpg/mmorpg_3.jpg", "./images/gamesImg/mmorpg/mmorpg_4.jpg", "./images/gamesImg/mmorpg/mmorpg_5.jpg"],
+      "photos": ["../images/gamesImg/mmorpg/mmorpg_1.jpg", "../images/gamesImg/mmorpg/mmorpg_2.jpg", "../images/gamesImg/mmorpg/mmorpg_3.jpg", "../images/gamesImg/mmorpg/mmorpg_4.jpg", "../images/gamesImg/mmorpg/mmorpg_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385f"]
     },
@@ -32,7 +32,7 @@
       "type": "rts",
       "name": "Medieval rts",
       "price": 85,
-      "photos": ["./images/gamesImg/rts/rts_1.jpg", "./images/gamesImg/rts/rts_2.jpg", "./images/gamesImg/rts/rts_3.jpg", "./images/gamesImg/rts/rts_4.jpg", "./images/gamesImg/rts/rts_5.jpg"],
+      "photos": ["../images/gamesImg/rts/rts_1.jpg", "../images/gamesImg/rts/rts_2.jpg", "../images/gamesImg/rts/rts_3.jpg", "../images/gamesImg/rts/rts_4.jpg", "../images/gamesImg/rts/rts_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385d"]
     },
@@ -41,7 +41,7 @@
       "type": "adventure-rpg",
       "name": "Retro adventure-rpg",
       "price": 50,
-      "photos": ["./images/gamesImg/adventure-rpg/adventure-rpg_1.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_2.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_3.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_4.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_5.jpg"],
+      "photos": ["../images/gamesImg/adventure-rpg/adventure-rpg_1.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_2.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_3.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_4.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385e", "5f9a8cc77731ba4584dd385a"]
     },
@@ -50,7 +50,7 @@
       "type": "action-shooter",
       "name": "Super action-shooter",
       "price": 70,
-      "photos": ["./images/gamesImg/action-shooter/action-shooter_1.jpg", "./images/gamesImg/action-shooter/action-shooter_2.jpg", "./images/gamesImg/action-shooter/action-shooter_3.jpg", "./images/gamesImg/action-shooter/action-shooter_4.jpg", "./images/gamesImg/action-shooter/action-shooter_5.jpg"],
+      "photos": ["../images/gamesImg/action-shooter/action-shooter_1.jpg", "../images/gamesImg/action-shooter/action-shooter_2.jpg", "../images/gamesImg/action-shooter/action-shooter_3.jpg", "../images/gamesImg/action-shooter/action-shooter_4.jpg", "../images/gamesImg/action-shooter/action-shooter_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385b", "5f9a8cc77731ba4584dd385c"]
     },
@@ -59,7 +59,7 @@
       "type": "mmorpg",
       "name": "Fantasy mmorpg",
       "price": 150,
-      "photos": ["./images/gamesImg/mmorpg/mmorpg_1.jpg", "./images/gamesImg/mmorpg/mmorpg_2.jpg", "./images/gamesImg/mmorpg/mmorpg_3.jpg", "./images/gamesImg/mmorpg/mmorpg_4.jpg", "./images/gamesImg/mmorpg/mmorpg_5.jpg"],
+      "photos": ["../images/gamesImg/mmorpg/mmorpg_1.jpg", "../images/gamesImg/mmorpg/mmorpg_2.jpg", "../images/gamesImg/mmorpg/mmorpg_3.jpg", "../images/gamesImg/mmorpg/mmorpg_4.jpg", "../images/gamesImg/mmorpg/mmorpg_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385f"]
     },
@@ -68,7 +68,7 @@
       "type": "rts",
       "name": "Medieval rts",
       "price": 85,
-      "photos": ["./images/gamesImg/rts/rts_1.jpg", "./images/gamesImg/rts/rts_2.jpg", "./images/gamesImg/rts/rts_3.jpg", "./images/gamesImg/rts/rts_4.jpg", "./images/gamesImg/rts/rts_5.jpg"],
+      "photos": ["../images/gamesImg/rts/rts_1.jpg", "../images/gamesImg/rts/rts_2.jpg", "../images/gamesImg/rts/rts_3.jpg", "../images/gamesImg/rts/rts_4.jpg", "../images/gamesImg/rts/rts_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385d"]
     },
@@ -77,7 +77,7 @@
       "type": "adventure-rpg",
       "name": "Fantasy adventure-rpg",
       "price": 50,
-      "photos": ["./images/gamesImg/adventure-rpg/adventure-rpg_1.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_2.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_3.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_4.jpg", "./images/gamesImg/adventure-rpg/adventure-rpg_5.jpg"],
+      "photos": ["../images/gamesImg/adventure-rpg/adventure-rpg_1.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_2.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_3.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_4.jpg", "../images/gamesImg/adventure-rpg/adventure-rpg_5.jpg"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ex massa, imperdiet vel gravida et, eleifend id orci. Vivamus viverra gravida lectus, sed bibendum eros dictum sit amet. Sed at arcu gravida, tincidunt massa at, posuere massa.",
       "genres": ["5f9a8cc77731ba4584dd385e", "5f9a8cc77731ba4584dd385a"]
     }
