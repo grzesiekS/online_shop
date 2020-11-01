@@ -2,6 +2,7 @@
 
 export const getGenresData = ({genres}) => genres.data;
 export const getSelectedGenres = ({genres}) => genres.selected;
+export const filterGenresArray = ({genres}, genresArray = []) => genres.data.filter(genre => genresArray.indexOf(genre._id) !== -1);
 
 /* ACTIONS */
 
