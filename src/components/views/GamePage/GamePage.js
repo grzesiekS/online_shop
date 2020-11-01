@@ -8,7 +8,6 @@ import GameForm from '../../features/GameForm/GameForm';
 const GamePage = ({...props}) => {
   const {description, genres, name, photos, price} = props.game;
 
-  console.log(photos);
   const randomImage = randomImageSelection(photos);
   return (
     <div>

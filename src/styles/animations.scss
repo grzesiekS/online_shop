@@ -8,3 +8,8 @@
   from {transform: rotate(180deg)}
   to {transform: rotate(0)}
 }
+
+@keyframes slide {
+  from {top: -200px}
+  to {top: -50px}
+}

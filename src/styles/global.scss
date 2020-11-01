@@ -1,4 +1,5 @@
 @import "./settings.scss";
+@import "./animations.scss";
 
 *, :after, :before {
   box-sizing: inherit;
@@ -14,4 +15,15 @@ body {
   margin: 0;
   background-color: $bg-color;
   color: $text-color;
+}
+
+.switchWrapper {
+  position: relative;
+
+  > :first-child ~ * {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      animation: slide $animationTime-long;
+  }
 }

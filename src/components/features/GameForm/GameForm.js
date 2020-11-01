@@ -13,8 +13,10 @@ const GameForm = ({description, price}) => (
 GameForm.propTypes = {
   description: PropTypes.string,
   price: PropTypes.oneOfType(
-    PropTypes.string,
-    PropTypes.number,
+    [
+      PropTypes.string,
+      PropTypes.number,
+    ]
   ),
 };
 
