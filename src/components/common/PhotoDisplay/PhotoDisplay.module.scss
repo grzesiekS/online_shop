@@ -1,0 +1,19 @@
+@import "../../../styles/settings.scss";
+@import "../../../styles//animations.scss";
+
+.photoDisplay {
+  margin: 75px auto;
+  text-align: center;
+  max-width: $photoDisplay-width;
+  max-height: $photoDisplay-height;
+
+  &.active {
+    animation: fadeIn $animationTime;
+  }
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -13,3 +13,8 @@
   from {top: -200px}
   to {top: -50px}
 }
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
