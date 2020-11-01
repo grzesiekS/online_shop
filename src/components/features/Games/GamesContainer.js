@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 
 import { getGenresData, getSelectedGenres, selectGenres } from '../../../redux/genresRedux';
-import { getGamesData } from '../../../redux/gamesRedux';
+import { getGamesData, filterGamesByGenres } from '../../../redux/gamesRedux';
 
 import Games from './Games';
 
 const mapStateToProps = state => ({
   genres: getGenresData(state),
   selectedGenres: getSelectedGenres(state),
-  games: getGamesData(state),
+  games: filterGamesByGenres(state).length === 0 ? getGamesData(state) : filterGamesByGenres(state),
 });
 
 const mapDispatchToProps = dispatch => ({
