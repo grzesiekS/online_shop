@@ -1,0 +1,25 @@
+@import "../../../styles/settings.scss";
+
+.flexBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  transition: $shortTransition;
+  object-fit: fill;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    border: $border-width solid $photoCarousel-hover-border-color;
+  }
+
+  &.active {
+    transform: scale(1.2);
+    border: $border-width solid $photoCarousel-hover-border-color;
+  }
+}

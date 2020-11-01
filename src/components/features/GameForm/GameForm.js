@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import styles from './GameForm.module.scss';
 
 import Button from '../../common/Button/Button';
+import PhotoCarousel from '../../features/PhotoCarousel/PhotoCarousel';
 
-const GameForm = ({description, price, genres}) => (
+const GameForm = ({description, price, genres, photos}) => (
   <div className={styles.container}>
     <p>Genres:</p>
     <ul className={styles.genreList}>
@@ -14,6 +15,7 @@ const GameForm = ({description, price, genres}) => (
       ))}
     </ul>
     <p className={styles.description}>{description}</p>
+    <PhotoCarousel photos={photos} />
     <p className={styles.price}>Price: {price} €</p>
     <Button Type='div' className='alignRight'>Buy it now</Button>
   </div>
@@ -28,6 +30,7 @@ GameForm.propTypes = {
     ]
   ),
   genres: PropTypes.array,
+  photos: PropTypes.array,
 };
 
 GameForm.defaultProps = {

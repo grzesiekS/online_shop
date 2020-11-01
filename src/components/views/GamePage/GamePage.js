@@ -12,7 +12,7 @@ const GamePage = ({...props}) => {
   return (
     <div>
       <Splash title={name} image={randomImage} />
-      <GameForm description={description} price={price} genres={props.filteredGenres} />
+      <GameForm description={description} price={price} genres={props.filteredGenres} photos={photos} />
     </div>
   );
 };
