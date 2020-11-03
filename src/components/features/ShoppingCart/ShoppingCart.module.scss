@@ -1,0 +1,20 @@
+@import "../../../styles/settings.scss";
+
+.shoppingCart {
+  margin: 45px 25px 0 0;
+}
+
+.icon {
+  font-size: 35px;
+}
+
+.counter {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 5px;
+
+  border-left: 2px solid $shoppingCart-border-color;
+  border-right: 2px solid $shoppingCart-border-color;
+
+  border-radius: 50%;
+}

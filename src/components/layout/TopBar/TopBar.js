@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './TopBar.module.scss';
+import ShoppingCart from '../../features/ShoppingCart/ShoppingCart';
 
 const TopBar = () => (
   <div className={styles.container}>
@@ -23,6 +24,7 @@ const TopBar = () => (
         </li>
       </ul>
     </nav>
+    <ShoppingCart />
   </div>
 );
 
