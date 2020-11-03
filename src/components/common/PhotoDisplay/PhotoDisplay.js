@@ -10,7 +10,6 @@ class PhotoDisplay extends React.Component {
 
   componentDidUpdate = (prevProps) => {
     if(prevProps.photo !== this.props.photo) {
-      console.log(prevProps.photo);
       this.addPhotoStyle('active');
       window.setTimeout(() => {this.removePhotoStyle('active');}, 250);
     }
