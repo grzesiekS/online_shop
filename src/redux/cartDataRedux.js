@@ -18,7 +18,6 @@ export const addGameToCart = payload => ({...payload, type: ADD_GAME_TO_CART});
 export default function reducer(statePart = [], action =[]) {
   switch(action.type) {
     case ADD_GAME_TO_CART:
-      console.log(action);
       return {
         ...statePart,
         orderDetails: {
