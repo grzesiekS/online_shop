@@ -1,0 +1,18 @@
+@import "../../../styles/settings.scss";
+
+.numberInput {
+  display: flex;
+  align-items: center;
+  margin: 35px 0;
+
+  &.alignRight {
+    justify-content: flex-end;
+    padding: 0 $padding-lr;
+  }
+}
+
+.quantity {
+  display: inline-block;
+  margin: 0 12px;
+  user-select: none;
+}
