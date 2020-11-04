@@ -6,13 +6,13 @@ import Splash from '../../features/Splash/Splash';
 import GameForm from '../../features/GameForm/GameForm';
 
 const GamePage = ({...props}) => {
-  const {description, name, photos, price} = props.game;
+  const {_id, description, name, photos, price} = props.game;
 
   const randomImage = randomImageSelection(photos);
   return (
     <div>
       <Splash title={name} image={randomImage} />
-      <GameForm description={description} price={price} genres={props.filteredGenres} photos={photos} />
+      <GameForm _id={_id} description={description} price={price} genres={props.filteredGenres} photos={photos} addToCart={props.addGameToCart} />
     </div>
   );
 };

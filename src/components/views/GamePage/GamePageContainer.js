@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import { getSelectedGame } from '../../../redux/gamesRedux';
 import { filterGenresArray } from '../../../redux/genresRedux';
+import { addGameToCart } from '../../../redux/cartDataRedux';
 
 import GamePage from './GamePage';
 
@@ -15,4 +16,8 @@ const mapStateToProps = (state, props) => {
   );
 };
 
-export default connect(mapStateToProps)(GamePage);
+const mapDispatchToProps = dispatch => ({
+  addGameToCart: (id, price, qty) => dispatch(addGameToCart({id, price, qty})),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamePage);
