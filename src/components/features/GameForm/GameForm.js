@@ -33,16 +33,24 @@ class GameForm extends React.Component {
     }
   };
 
-  ChangeTotalPrice = () => {
+  SubmitGameToCart = (id, price, qty) => {
+    if(id && price > 0 && qty > 0) {
+      this.props.addToCart(id, price, qty);
+      this.DefaultState();
+    }
+  }
+
+  DefaultState = () => {
     this.setState({
       ...this.state,
-      totalPrice: this.props.price * this.state.qty,
+      qty: 1,
+      totalPrice: this.props.price,
     });
   }
 
   render() {
 
-    const {_id, description, genres, photos, addToCart} = this.props;
+    const {_id, description, genres, photos} = this.props;
 
     return (
       <div className={styles.container}>
@@ -62,7 +70,7 @@ class GameForm extends React.Component {
           minusAction={() => this.SubstractQty()}
         />
         <div className={styles.submit}>
-          <Button Type='div' onClick={() => addToCart(_id, this.state.totalPrice, this.state.qty)}>Buy it now</Button>
+          <Button Type='div' onClick={() => this.SubmitGameToCart(_id, this.state.totalPrice, this.state.qty)}>Buy it now</Button>
         </div>
       </div>
     );
