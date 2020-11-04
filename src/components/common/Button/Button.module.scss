@@ -8,6 +8,7 @@
   padding: 18px;
   transition: $shortTransition;
   text-transform: uppercase;
+  user-select: none;
 
   &:hover {
     cursor: pointer;
