@@ -17,10 +17,17 @@ p {
 
 .price {
   text-align: right;
+  margin-bottom: 0;
 }
 
 .genreList {
   margin-bottom: 105px;
   padding: 0 80px;
+}
+
+.submit {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 $padding-lr
 }
 
