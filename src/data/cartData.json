@@ -1,0 +1,28 @@
+{
+  "orderDetails":
+    {
+    "_id": "1",
+    "name": "Darek",
+    "surname": "Json",
+    "email":"d.json@json.com",
+    "phone":"123456789",
+    "totalPrice": 120,
+    "gamesInCart": [
+      {
+        "game": "1",
+        "price": 50,
+        "quantity": 1,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      {
+        "game": "2",
+        "price": 70,
+        "quantity": 1,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      }
+    ]
+  },
+  "cartFormOptions": {
+    "active": false
+  }
+}
