@@ -9,6 +9,7 @@ import globalReducer from './globalRedux';
 import mainReducer from './mainRedux';
 import genresReducer from './genresRedux';
 import gamesReducer from './gamesRedux';
+import cartDataReducer from './cartDataRedux';
 
 const initialState = {
   main: mainData,
@@ -22,6 +23,7 @@ const reducers = {
   main: mainReducer,
   genres: genresReducer,
   games: gamesReducer,
+  cartData: cartDataReducer,
 };
 
 // add blank reducers for initial state properties without reducers
