@@ -6,6 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './CartForm.module.scss';
 import Button from '../../common/Button/Button';
+import CartItems from '../../features/CartItems/CartItems';
 
 const CartForm = ({changeActiveStatusCart}) => (
   <div className={styles.cart}>
@@ -15,6 +16,7 @@ const CartForm = ({changeActiveStatusCart}) => (
       </Button>
     </div>
     <h1 className={styles.title}>Your order</h1>
+    <CartItems />
     <form className={styles.cartForm}>
       <label htmlFor="name">Name</label>
       <input
