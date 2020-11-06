@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
 import styles from './PromptWindow.module.scss';
 import CartForm from '../CartForm/CartFormContainer';
 
 const PromptWindow = ({children, cartFormActiveStatus}) => (
-  <div className={styles.promptWindow}>
+  <div
+    className={
+      cartFormActiveStatus
+        ?
+        clsx(styles.promptWindow, styles.disableBg)
+        :
+        styles.promptWindow
+    }
+  >
     {cartFormActiveStatus
       ?
       <CartForm />
