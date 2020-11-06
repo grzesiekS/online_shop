@@ -2,7 +2,7 @@
   "orderDetails":
     {
     "name": "Darek",
-    "surname": "Json",
+    "lastname": "Json",
     "email":"d.json@json.com",
     "phone":"123456789",
     "totalPrice": 120,

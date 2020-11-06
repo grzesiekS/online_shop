@@ -2,8 +2,45 @@
 
 .cart {
   position: fixed;
-  top: 50%;
+  top: 20%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 100;
+  max-width: 750px;
+  background-color: $cartForm-bg-color;
+  border-radius: 7px;
+}
+
+.title {
+  font-family: $title-font-family;
+  text-align: center;
+}
+
+.cartForm {
+  display: flex;
+  flex-direction: column;
+  padding: 75px;
+
+  label, input {
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  label {
+    margin-bottom: 7px;
+  }
+
+  input {
+    margin-bottom: 25px;
+    padding: 7px;
+    width: 250px;
+    font-family: $text-font-family;
+    background-color: $cartForm-input-bg-color;
+    color: $cartForm-input-text-color;
+    border: $border-width solid $cartForm-input-border-color;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }

@@ -1,10 +1,34 @@
 import React from 'react';
 
 import styles from './CartForm.module.scss';
+import Button from '../../common/Button/Button';
 
 const CartForm = () => (
   <div className={styles.cart}>
-    <h1>Cart component</h1>
+    <h1 className={styles.title}>Your order</h1>
+    <form className={styles.cartForm}>
+      <label htmlFor="name">Name</label>
+      <input
+        id="name"
+        type="text"
+      />
+      <label htmlFor="lastname">Last Name</label>
+      <input
+        id="lastname"
+        type="text"
+      />
+      <label htmlFor="email">E-mail</label>
+      <input
+        id="email"
+        type="email"
+      />
+      <label htmlFor="phone">Phone No.</label>
+      <input
+        id="phone"
+        type="tel"
+      />
+      <Button Type="div" >Order Now</Button>
+    </form>
   </div>
 );
 
