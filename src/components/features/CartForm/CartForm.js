@@ -6,7 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './CartForm.module.scss';
 import Button from '../../common/Button/Button';
-import CartItems from '../../features/CartItems/CartItems';
+import CartItems from '../../features/CartItems/CartItemsContainer';
 
 const CartForm = ({changeActiveStatusCart}) => (
   <div className={styles.cart}>

@@ -2,8 +2,8 @@
 @import "../../../styles/animations.scss";
 
 .cart {
-  position: fixed;
-  top: 20%;
+  position: absolute;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;

@@ -2,6 +2,15 @@
 export const getOrderDetails = ({cartData}) => cartData.orderDetails;
 export const getGamesInCart = ({cartData}) => cartData.orderDetails.gamesInCart;
 export const getActiveCartFormOptions = ({cartData}) => cartData.cartFormOptions.active;
+export const getGamesInCartGameExtend = ({cartData, games}) => cartData.orderDetails.gamesInCart.map(gameCart => (
+  {
+    ...gameCart,
+    game: games.data.filter(game => (game._id === gameCart.game))[0],
+  }
+));
+export const getTotalPrice = ({cartData}) => cartData.orderDetails.gamesInCart.map(gameCart => (
+  gameCart.price
+)).reduce((a, b) => a + b, 0);
 
 /* ACTIONS */
 
