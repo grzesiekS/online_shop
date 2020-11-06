@@ -11,9 +11,11 @@ const createAciotnName = name => `app/${reducerName}/${name}`;
 
 // Action types
 const ADD_GAME_TO_CART = createAciotnName('ADD_GAME_TO_CART');
+const ONOFF_CART_FORM = createAciotnName('ONOFF_CART_FORM');
 
 // Action creators
 export const addGameToCart = payload => ({...payload, type: ADD_GAME_TO_CART});
+export const changeActiveCartForm = () => ({type: ONOFF_CART_FORM});
 
 //reducer
 export default function reducer(statePart = [], action =[]) {
@@ -32,6 +34,14 @@ export default function reducer(statePart = [], action =[]) {
               description: '',
             },
           ],
+        },
+      };
+    case ONOFF_CART_FORM:
+      return {
+        ...statePart,
+        cartFormOptions: {
+          ...statePart.cartFormOptions,
+          active: !statePart.cartFormOptions.active,
         },
       };
     default:

@@ -1,4 +1,5 @@
 @import "../../../styles/settings.scss";
+@import "../../../styles/animations.scss";
 
 .cart {
   position: fixed;
@@ -9,6 +10,7 @@
   max-width: 750px;
   background-color: $cartForm-bg-color;
   border-radius: 7px;
+  animation: fadeIn $animationTime;
 }
 
 .title {

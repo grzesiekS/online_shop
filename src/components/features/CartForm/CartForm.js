@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -6,10 +7,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import styles from './CartForm.module.scss';
 import Button from '../../common/Button/Button';
 
-const CartForm = () => (
+const CartForm = ({changeActiveStatusCart}) => (
   <div className={styles.cart}>
     <div className={styles.closeWindow}>
-      <Button Type='div' className='icon'>
+      <Button Type='div' className='icon' onClick={() => changeActiveStatusCart()}>
         <FontAwesomeIcon icon={faTimes} className={styles.icon} />
       </Button>
     </div>
@@ -39,5 +40,9 @@ const CartForm = () => (
     </form>
   </div>
 );
+
+CartForm.propTypes = {
+  changeActiveStatusCart: PropTypes.func,
+};
 
 export default CartForm;

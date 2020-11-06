@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './PromptWindow.module.scss';
-import CartForm from '../CartForm/CartForm';
+import CartForm from '../CartForm/CartFormContainer';
 
 const PromptWindow = ({children, cartFormActiveStatus}) => (
   <div className={styles.promptWindow}>
