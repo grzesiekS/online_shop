@@ -1,6 +1,7 @@
 /* SELECTORS */
 export const getOrderDetails = ({cartData}) => cartData.orderDetails;
 export const getGamesInCart = ({cartData}) => cartData.orderDetails.gamesInCart;
+export const getActiveCartFormOptions = ({cartData}) => cartData.cartFormOptions.active;
 
 /* ACTIONS */
 

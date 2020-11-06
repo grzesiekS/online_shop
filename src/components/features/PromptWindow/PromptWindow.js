@@ -4,15 +4,22 @@ import PropTypes from 'prop-types';
 import styles from './PromptWindow.module.scss';
 import CartForm from '../CartForm/CartForm';
 
-const PromptWindow = ({children}) => (
+const PromptWindow = ({children, cartFormActiveStatus}) => (
   <div className={styles.promptWindow}>
-    <CartForm />
+    {cartFormActiveStatus
+      ?
+      <CartForm />
+      :
+      null
+    }
+
     {children}
   </div>
 );
 
 PromptWindow.propTypes = {
   children: PropTypes.node,
+  cartFormActiveStatus: PropTypes.bool,
 };
 
 export default PromptWindow;
