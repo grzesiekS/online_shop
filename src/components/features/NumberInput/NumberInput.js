@@ -27,4 +27,9 @@ NumberInput.propTypes = {
   plusAction: PropTypes.func,
 };
 
+NumberInput.defaultProps = {
+  plusAction: () => {},
+  minusAction: () => {},
+};
+
 export default NumberInput;
