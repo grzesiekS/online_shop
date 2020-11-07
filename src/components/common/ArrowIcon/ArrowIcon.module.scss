@@ -1,0 +1,17 @@
+@import "../../../styles/settings.scss";
+@import "../../../styles/animations.scss";
+
+.arrow {
+  font-size: 20px;
+  animation: rotateBack $animationTime;
+  animation-fill-mode: forwards;
+
+  &.active {
+    animation: rotate $animationTime;
+    animation-fill-mode: forwards;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
