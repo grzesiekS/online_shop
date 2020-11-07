@@ -23,10 +23,12 @@ const createAciotnName = name => `app/${reducerName}/${name}`;
 // Action types
 const ADD_GAME_TO_CART = createAciotnName('ADD_GAME_TO_CART');
 const ONOFF_CART_FORM = createAciotnName('ONOFF_CART_FORM');
+const CHANGE_DESC_GAME_IN_CART = createAciotnName('CHANGE_DESC_GAME_IN_CART');
 
 // Action creators
 export const addGameToCart = payload => ({shortid, ...payload, type: ADD_GAME_TO_CART});
 export const changeActiveCartForm = () => ({type: ONOFF_CART_FORM});
+export const changeDescGameCart = payload => ({...payload, type: CHANGE_DESC_GAME_IN_CART});
 
 //reducer
 export default function reducer(statePart = [], action =[]) {
@@ -54,6 +56,30 @@ export default function reducer(statePart = [], action =[]) {
         cartFormOptions: {
           ...statePart.cartFormOptions,
           active: !statePart.cartFormOptions.active,
+        },
+      };
+    case CHANGE_DESC_GAME_IN_CART:
+      console.log(statePart);
+      return {
+        ...statePart,
+        orderDetails: {
+          ...statePart.orderDetails,
+          gamesInCart: statePart.orderDetails.gamesInCart.map(game => {
+            if (game.id === action.id) {
+              return (
+                {
+                  ...game,
+                  description: action.desc,
+                }
+              );
+            } else {
+              return (
+                {
+                  ...game,
+                }
+              );
+            }
+          }),
         },
       };
     default:

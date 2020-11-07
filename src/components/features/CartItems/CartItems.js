@@ -28,7 +28,7 @@ class CartItems extends React.Component {
 
   render() {
 
-    const {gamesInCart, totalPrice} = this.props;
+    const {gamesInCart, totalPrice, changeDesc} = this.props;
 
     return (
       <div className={styles.container}>
@@ -59,7 +59,7 @@ class CartItems extends React.Component {
                 id='description'
                 className={styles.description}
                 value={gameInCart.description}
-                onChange={() => null}
+                onChange={e => changeDesc(gameInCart.id ,e.currentTarget.value)}
               />
               <NumberInput
                 qty={gameInCart.quantity}
@@ -83,6 +83,7 @@ class CartItems extends React.Component {
 CartItems.propTypes = {
   gamesInCart: PropTypes.array,
   totalPrice: PropTypes.number,
+  changeDesc: PropTypes.func,
 };
 
 export default CartItems;

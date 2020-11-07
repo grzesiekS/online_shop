@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import { getGamesInCartGameExtend, getTotalPrice } from '../../../redux/cartDataRedux';
+import { getGamesInCartGameExtend, getTotalPrice, changeDescGameCart } from '../../../redux/cartDataRedux';
 
 import CartItems from './CartItems';
 
@@ -9,4 +9,8 @@ const mapStateToProps = state => ({
   totalPrice: getTotalPrice(state),
 });
 
-export default connect(mapStateToProps)(CartItems);
+const mapDispatchToProps = dispatch => ({
+  changeDesc: (id, desc) => dispatch(changeDescGameCart({id, desc})),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartItems);
