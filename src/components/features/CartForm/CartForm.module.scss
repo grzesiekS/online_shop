@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   padding: 75px;
+  box-sizing: border-box;
 
   label, input {
     display: inline-block;
@@ -35,7 +36,7 @@
   input {
     margin-bottom: 25px;
     padding: 7px;
-    width: 250px;
+    width: 100%;
     font-family: $text-font-family;
     background-color: $cartForm-input-bg-color;
     color: $cartForm-input-text-color;
@@ -49,9 +50,9 @@
 
 .closeWindow {
   float: right;
+  padding: 15px;
 
   .icon {
-    padding: 15px 15px 0 0;
     font-size: 25px;
   }
 }
