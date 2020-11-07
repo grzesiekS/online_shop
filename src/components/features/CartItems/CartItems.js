@@ -48,7 +48,7 @@ class CartItems extends React.Component {
 
   render() {
 
-    const {gamesInCart, totalPrice, changeDesc} = this.props;
+    const {gamesInCart, totalPrice, changeDesc, deleteGame} = this.props;
 
     return (
       <div className={styles.container}>
@@ -85,6 +85,7 @@ class CartItems extends React.Component {
                 <Button
                   Type='div'
                   className='icon'
+                  onClick={() => deleteGame(gameInCart.id)}
                 >
                   <FontAwesomeIcon icon={faTrash} className={styles.trashIcon} />
                 </Button>
@@ -115,6 +116,7 @@ CartItems.propTypes = {
   addToQty: PropTypes.func,
   substractFromQty: PropTypes.func,
   updatePrice: PropTypes.func,
+  deleteGame: PropTypes.func,
 };
 
 export default CartItems;

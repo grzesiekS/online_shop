@@ -6,7 +6,8 @@ import {
   changeDescGameCart,
   addToQty,
   substractFromQty,
-  updatePrice }
+  updatePrice,
+  deleteGameFromCart }
   from '../../../redux/cartDataRedux';
 
 import CartItems from './CartItems';
@@ -21,6 +22,7 @@ const mapDispatchToProps = dispatch => ({
   addToQty: id => dispatch(addToQty({id})),
   substractFromQty: id => dispatch(substractFromQty({id})),
   updatePrice: (id, newPrice) => dispatch(updatePrice({id, newPrice})),
+  deleteGame: id => dispatch(deleteGameFromCart({id})),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartItems);
