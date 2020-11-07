@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
 import styles from './CartItems.module.scss';
 import NumberInput from '../NumberInput/NumberInput';
 import ArrowIcon from '../../common/ArrowIcon/ArrowIcon';
+import Button from '../../common/Button/Button';
 
 class CartItems extends React.Component {
   state = {
@@ -77,12 +81,20 @@ class CartItems extends React.Component {
                 value={gameInCart.description}
                 onChange={e => changeDesc(gameInCart.id ,e.currentTarget.value)}
               />
-              <NumberInput
-                qty={gameInCart.quantity}
-                className='alignRight'
-                plusAction={() => this.increasePrice(gameInCart.id, gameInCart.game.price, gameInCart.quantity)}
-                minusAction={() => this.reducePrice(gameInCart.id, gameInCart.game.price, gameInCart.price, gameInCart.quantity)}
-              />
+              <div className={styles.funcButtons}>
+                <Button
+                  Type='div'
+                  className='icon'
+                >
+                  <FontAwesomeIcon icon={faTrash} className={styles.trashIcon} />
+                </Button>
+                <NumberInput
+                  qty={gameInCart.quantity}
+                  className='alignRight'
+                  plusAction={() => this.increasePrice(gameInCart.id, gameInCart.game.price, gameInCart.quantity)}
+                  minusAction={() => this.reducePrice(gameInCart.id, gameInCart.game.price, gameInCart.price, gameInCart.quantity)}
+                />
+              </div>
             </div>
           </div>
         ))}

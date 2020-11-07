@@ -70,3 +70,17 @@
 .subtitle {
   margin-left: 18px;
 }
+
+.funcButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  .trashIcon {
+    margin: 35px 25px 35px 0,
+  }
+
+  &:nth-child(n) {
+    font-size: 25px;
+  }
+}
