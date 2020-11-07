@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
 import styles from './CartItems.module.scss';
 import NumberInput from '../NumberInput/NumberInput';
@@ -7,13 +8,21 @@ import ArrowIcon from '../../common/ArrowIcon/ArrowIcon';
 
 class CartItems extends React.Component {
   state = {
-    activeCart: null,
+    activeCarts: [],
   }
 
   changeActiveState = (cartId) => {
     this.setState({
       ...this.state,
-      activeCart: this.state.activeCart === cartId ? null : cartId,
+      activeCarts:
+        this.state.activeCarts.indexOf(cartId) !== -1
+          ?
+          this.state.activeCarts.filter(activeCart => activeCart !== cartId)
+          :
+          [
+            ...this.state.activeCarts,
+            cartId,
+          ],
     });
   }
 
@@ -31,11 +40,20 @@ class CartItems extends React.Component {
             <p className={styles.name}>{gameInCart.game.name}</p>
             <p className={styles.qty}>QTY: {gameInCart.quantity}</p>
             <p className={styles.price}>{gameInCart.price} €</p>
-            <ArrowIcon
-              className={this.state.activeCart === gameInCart.id ? 'active' : null}
-              clickHandler={() => this.changeActiveState(gameInCart.id)}
-            />
-            <div className={styles.orderDetails}>
+            <div className={styles.arrowIcon}>
+              <ArrowIcon
+                className={this.state.activeCarts.indexOf(gameInCart.id) !== -1 ? 'active' : null}
+                clickHandler={() => this.changeActiveState(gameInCart.id)}
+              />
+            </div>
+            <div
+              className={
+                this.state.activeCarts.indexOf(gameInCart.id) !== -1
+                  ?
+                  clsx(styles.orderDetails, styles.active)
+                  :
+                  styles.orderDetails }
+            >
               <label htmlFor='description'>Short Game Description:</label>
               <textarea
                 id='description'

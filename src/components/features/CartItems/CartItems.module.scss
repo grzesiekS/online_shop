@@ -20,25 +20,18 @@
   font-size: 24px;
 }
 
-.arrow {
-  font-size: 20px;
-  animation: rotateBack $animationTime;
-  animation-fill-mode: forwards;
-
-  &.active {
-    animation: rotate $animationTime;
-    animation-fill-mode: forwards;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
+.arrowIcon {
+  align-self: center;
 }
 
 .orderDetails {
   flex: 100%;
   text-align: center;
   padding: 25px;
+  max-height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: $shortTransition;
 
   .description {
     display: block;
@@ -56,6 +49,11 @@
     &:focus {
       outline: none;
     }
+  }
+
+  &.active {
+    max-height: $cartItems-maxHeight;
+    transform: scaleY(1);
   }
 }
 
