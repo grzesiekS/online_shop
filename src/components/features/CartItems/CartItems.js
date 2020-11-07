@@ -26,9 +26,25 @@ class CartItems extends React.Component {
     });
   }
 
+  increasePrice = (cartId, gamePrice, qty) => {
+    const newPrice = gamePrice * (qty + 1);
+
+    this.props.addToQty(cartId);
+    this.props.updatePrice(cartId, newPrice);
+  }
+
+  reducePrice = (cartId, gamePrice, actualPrice, qty) => {
+    if(qty > 1) {
+      const newPrice = actualPrice - gamePrice;
+
+      this.props.substractFromQty(cartId);
+      this.props.updatePrice(cartId, newPrice);
+    }
+  }
+
   render() {
 
-    const {gamesInCart, totalPrice, changeDesc, addToQty, substractFromQty} = this.props;
+    const {gamesInCart, totalPrice, changeDesc} = this.props;
 
     return (
       <div className={styles.container}>
@@ -64,8 +80,8 @@ class CartItems extends React.Component {
               <NumberInput
                 qty={gameInCart.quantity}
                 className='alignRight'
-                plusAction={() => addToQty(gameInCart.id)}
-                minusAction={() => substractFromQty(gameInCart.id)}
+                plusAction={() => this.increasePrice(gameInCart.id, gameInCart.game.price, gameInCart.quantity)}
+                minusAction={() => this.reducePrice(gameInCart.id, gameInCart.game.price, gameInCart.price, gameInCart.quantity)}
               />
             </div>
           </div>
@@ -86,6 +102,7 @@ CartItems.propTypes = {
   changeDesc: PropTypes.func,
   addToQty: PropTypes.func,
   substractFromQty: PropTypes.func,
+  updatePrice: PropTypes.func,
 };
 
 export default CartItems;

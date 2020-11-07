@@ -25,7 +25,8 @@ const ADD_GAME_TO_CART = createAciotnName('ADD_GAME_TO_CART');
 const ONOFF_CART_FORM = createAciotnName('ONOFF_CART_FORM');
 const CHANGE_DESC_GAME_IN_CART = createAciotnName('CHANGE_DESC_GAME_IN_CART');
 const ADD_TO_QUANTITY = createAciotnName('ADD_TO_QUANTITY');
-const SUBSTRACT_TO_QUANTITY =createAciotnName('SUBSTRACT_TO_QUANTITY');
+const SUBSTRACT_TO_QUANTITY = createAciotnName('SUBSTRACT_TO_QUANTITY');
+const UPDATE_PRICE = createAciotnName('UPDATE_PRICE');
 
 // Action creators
 export const addGameToCart = payload => ({shortid, ...payload, type: ADD_GAME_TO_CART});
@@ -33,6 +34,7 @@ export const changeActiveCartForm = () => ({type: ONOFF_CART_FORM});
 export const changeDescGameCart = payload => ({...payload, type: CHANGE_DESC_GAME_IN_CART});
 export const addToQty = payload => ({...payload, type: ADD_TO_QUANTITY});
 export const substractFromQty = payload => ({...payload, type: SUBSTRACT_TO_QUANTITY});
+export const updatePrice = payload => ({...payload, type: UPDATE_PRICE});
 
 //reducer
 export default function reducer(statePart = [], action =[]) {
@@ -119,6 +121,30 @@ export default function reducer(statePart = [], action =[]) {
                 {
                   ...game,
                   quantity: game.quantity - 1,
+                }
+              );
+            } else {
+              return (
+                {
+                  ...game,
+                }
+              );
+            }
+          }),
+        },
+      };
+    case UPDATE_PRICE:
+      console.log(action);
+      return {
+        ...statePart,
+        orderDetails: {
+          ...statePart.orderDetails,
+          gamesInCart: statePart.orderDetails.gamesInCart.map(game => {
+            if (game.id === action.id) {
+              return (
+                {
+                  ...game,
+                  price: action.newPrice,
                 }
               );
             } else {
