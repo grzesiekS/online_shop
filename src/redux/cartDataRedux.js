@@ -24,11 +24,15 @@ const createAciotnName = name => `app/${reducerName}/${name}`;
 const ADD_GAME_TO_CART = createAciotnName('ADD_GAME_TO_CART');
 const ONOFF_CART_FORM = createAciotnName('ONOFF_CART_FORM');
 const CHANGE_DESC_GAME_IN_CART = createAciotnName('CHANGE_DESC_GAME_IN_CART');
+const ADD_TO_QUANTITY = createAciotnName('ADD_TO_QUANTITY');
+const SUBSTRACT_TO_QUANTITY =createAciotnName('SUBSTRACT_TO_QUANTITY');
 
 // Action creators
 export const addGameToCart = payload => ({shortid, ...payload, type: ADD_GAME_TO_CART});
 export const changeActiveCartForm = () => ({type: ONOFF_CART_FORM});
 export const changeDescGameCart = payload => ({...payload, type: CHANGE_DESC_GAME_IN_CART});
+export const addToQty = payload => ({...payload, type: ADD_TO_QUANTITY});
+export const substractFromQty = payload => ({...payload, type: SUBSTRACT_TO_QUANTITY});
 
 //reducer
 export default function reducer(statePart = [], action =[]) {
@@ -59,7 +63,6 @@ export default function reducer(statePart = [], action =[]) {
         },
       };
     case CHANGE_DESC_GAME_IN_CART:
-      console.log(statePart);
       return {
         ...statePart,
         orderDetails: {
@@ -70,6 +73,52 @@ export default function reducer(statePart = [], action =[]) {
                 {
                   ...game,
                   description: action.desc,
+                }
+              );
+            } else {
+              return (
+                {
+                  ...game,
+                }
+              );
+            }
+          }),
+        },
+      };
+    case ADD_TO_QUANTITY:
+      return {
+        ...statePart,
+        orderDetails: {
+          ...statePart.orderDetails,
+          gamesInCart: statePart.orderDetails.gamesInCart.map(game => {
+            if (game.id === action.id) {
+              return (
+                {
+                  ...game,
+                  quantity: game.quantity + 1,
+                }
+              );
+            } else {
+              return (
+                {
+                  ...game,
+                }
+              );
+            }
+          }),
+        },
+      };
+    case SUBSTRACT_TO_QUANTITY:
+      return {
+        ...statePart,
+        orderDetails: {
+          ...statePart.orderDetails,
+          gamesInCart: statePart.orderDetails.gamesInCart.map(game => {
+            if (game.id === action.id && game.quantity > 1) {
+              return (
+                {
+                  ...game,
+                  quantity: game.quantity - 1,
                 }
               );
             } else {
