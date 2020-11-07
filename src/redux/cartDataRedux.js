@@ -1,3 +1,5 @@
+import shortid from 'shortid';
+
 /* SELECTORS */
 export const getOrderDetails = ({cartData}) => cartData.orderDetails;
 export const getGamesInCart = ({cartData}) => cartData.orderDetails.gamesInCart;
@@ -23,7 +25,7 @@ const ADD_GAME_TO_CART = createAciotnName('ADD_GAME_TO_CART');
 const ONOFF_CART_FORM = createAciotnName('ONOFF_CART_FORM');
 
 // Action creators
-export const addGameToCart = payload => ({...payload, type: ADD_GAME_TO_CART});
+export const addGameToCart = payload => ({shortid, ...payload, type: ADD_GAME_TO_CART});
 export const changeActiveCartForm = () => ({type: ONOFF_CART_FORM});
 
 //reducer
@@ -37,6 +39,7 @@ export default function reducer(statePart = [], action =[]) {
           gamesInCart: [
             ...statePart.orderDetails.gamesInCart,
             {
+              id: action.shortid(),
               game: action.id,
               price: action.price,
               quantity: action.qty,
