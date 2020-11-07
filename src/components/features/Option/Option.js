@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-
 import styles from './Option.module.scss';
 
 import OptionCheckboxes from './OptionCheckboxes';
+import ArrowIcon from '../../common/ArrowIcon/ArrowIcon';
 
 const optionTypes = {
   checkboxes: OptionCheckboxes,
@@ -37,10 +35,9 @@ class Option extends React.Component {
         <div className={styles.option}>
           <div className={styles.flexBox}>
             <h2 className={styles.title}>{name}</h2>
-            <FontAwesomeIcon
-              icon={faChevronDown}
-              className={this.state.active ? clsx(styles.arrow, styles.active) : clsx(styles.arrow)}
-              onClick={() => this.changeActiveState()}
+            <ArrowIcon
+              className={this.state.active ? 'active' : null}
+              clickHandler={() => this.changeActiveState()}
             />
           </div>
           <div className={this.state.active ? clsx(styles.optionComponent, styles.active) : clsx(styles.optionComponent)}>
