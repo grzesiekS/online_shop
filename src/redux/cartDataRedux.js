@@ -13,6 +13,9 @@ export const getGamesInCartGameExtend = ({cartData, games}) => cartData.orderDet
 export const getTotalPrice = ({cartData}) => cartData.orderDetails.gamesInCart.map(gameCart => (
   gameCart.price
 )).reduce((a, b) => a + b, 0);
+export const getTotalQty = ({cartData}) => cartData.orderDetails.gamesInCart.map(gameCart => (
+  gameCart.quantity
+)).reduce((a, b) => a + b, 0);
 
 /* ACTIONS */
 
