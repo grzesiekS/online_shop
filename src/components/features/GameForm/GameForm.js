@@ -36,7 +36,10 @@ class GameForm extends React.Component {
   SubmitGameToCart = (id, price, qty) => {
     if(id && price > 0 && qty > 0) {
       this.props.addToCart(id, price, qty);
+      this.props.changePromptInfoStatus('success');
       this.DefaultState();
+    } else {
+      this.props.changePromptInfoStatus('error');
     }
   }
 
@@ -89,6 +92,7 @@ GameForm.propTypes = {
   photos: PropTypes.array,
   addToCart: PropTypes.func,
   _id: PropTypes.string,
+  changePromptInfoStatus: PropTypes.func,
 };
 
 GameForm.defaultProps = {

@@ -13,7 +13,15 @@ const GamePage = ({...props}) => {
   return (
     <div>
       <Splash title={name} image={randomImage} />
-      <GameForm _id={_id} description={description} price={price} genres={props.filteredGenres} photos={photos} addToCart={props.addGameToCart} />
+      <GameForm
+        _id={_id}
+        description={description}
+        price={price}
+        genres={props.filteredGenres}
+        photos={photos}
+        addToCart={props.addGameToCart}
+        changePromptInfoStatus={props.changePromptStatus}
+      />
     </div>
   );
 };
@@ -28,6 +36,7 @@ GamePage.propTypes = {
   }).isRequired,
   filteredGenres: PropTypes.array,
   addGameToCart: PropTypes.func,
+  changePromptStatus: PropTypes.func,
 };
 
 export default GamePage;

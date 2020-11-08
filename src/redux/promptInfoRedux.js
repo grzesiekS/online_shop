@@ -1,5 +1,5 @@
 /* SELECTORS */
-export const getPromptStatus = ({promptInfoData}) => promptInfoData.promptStatus;
+export const getPromptStatus = ({promptInfo}) => promptInfo.promptStatus;
 
 /* ACTIONS */
 

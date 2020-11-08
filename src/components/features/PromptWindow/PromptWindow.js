@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import styles from './PromptWindow.module.scss';
 import CartForm from '../CartForm/CartFormContainer';
-import PromptInfo from '../../common/PromptInfo/PromptInfo';
+import PromptInfo from '../PromptInfo/PromptInfoContainer';
 
 const PromptWindow = ({children, cartFormActiveStatus}) => (
   <div
