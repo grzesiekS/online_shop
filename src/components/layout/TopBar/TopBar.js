@@ -41,11 +41,6 @@ class TopBar extends React.Component {
                 this.changeActiveSearchState();
               }}>
                 <FontAwesomeIcon icon={faSearch} className={styles.searchIcon}/>
-                <p
-                  className={!this.state.activeSearch ? styles.searchText : clsx(styles.searchText, styles.disable)}
-                >
-                  Search
-                </p>
               </a>
             </li>
           </ul>

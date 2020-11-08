@@ -39,17 +39,6 @@
   }
 }
 
-.searchText {
-  display: inline-block;
-  padding: 0;
-  transition: $shortTransition;
-  margin: 0;
-
-  &.disable {
-    transform: scale(0);
-  }
-}
-
 .serachInput {
   padding: 10px;
   border-radius: 50px;
@@ -57,7 +46,7 @@
   font-size: 18px;
   width: 0;
   opacity: 0;
-  transition: $shortTransition;
+  transition: $transition;
 
   &:focus {
     outline: none;
