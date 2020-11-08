@@ -35,3 +35,24 @@
   background-color: $promptInfo-bg-color;
   animation: fadeIn $animationTime-long;
 }
+
+@media (max-width: 450px) {
+  .checkIcon, .exIcon {
+    font-size: 35px;
+    margin: 7px;
+  }
+
+  .info {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 280px) {
+  .checkIcon, .exIcon {
+    font-size: 20px;
+  }
+
+  .info {
+    font-size: 10px;
+  }
+}
