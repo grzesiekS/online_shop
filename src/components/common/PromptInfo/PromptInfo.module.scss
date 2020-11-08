@@ -1,0 +1,25 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 350px;
+  z-index: 200;
+  background-color: $promptInfo-bg-color;
+}
+
+.checkIcon {
+  font-size: 48px;
+  margin: 15px;
+  color: $promptInfo-checkIcon-color;
+  transform: translateY(20%);
+}
+
+.info {
+  display: inline-block;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+  font-size: 25px;
+}

@@ -4,18 +4,21 @@ import mainData from '../data/main.json';
 import genresData from '../data/genres.json';
 import gamesData from '../data/games.json';
 import cartData from '../data/cartData.json';
+import promptInfoData from '../data/promptInfo.json';
 
 import globalReducer from './globalRedux';
 import mainReducer from './mainRedux';
 import genresReducer from './genresRedux';
 import gamesReducer from './gamesRedux';
 import cartDataReducer from './cartDataRedux';
+import promptInfoReducer from './promptInfoRedux';
 
 const initialState = {
   main: mainData,
   genres: genresData,
   games: gamesData,
   cartData: cartData,
+  promptInfo: promptInfoData,
 };
 
 // define reducers
@@ -24,6 +27,7 @@ const reducers = {
   genres: genresReducer,
   games: gamesReducer,
   cartData: cartDataReducer,
+  promptInfo: promptInfoReducer,
 };
 
 // add blank reducers for initial state properties without reducers

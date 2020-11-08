@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import styles from './PromptWindow.module.scss';
 import CartForm from '../CartForm/CartFormContainer';
+import PromptInfo from '../../common/PromptInfo/PromptInfo';
 
 const PromptWindow = ({children, cartFormActiveStatus}) => (
   <div
@@ -21,7 +22,7 @@ const PromptWindow = ({children, cartFormActiveStatus}) => (
       :
       null
     }
-
+    <PromptInfo />
     {children}
   </div>
 );

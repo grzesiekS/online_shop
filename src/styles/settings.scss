@@ -44,6 +44,7 @@ $cartItems-maxHeight: 1000px;
 $white: #ffffff;
 $grey: #808080;
 $black: #000000;
+$emerald: #2ecc71;
 
 /* colors settings */
 // BODY
@@ -103,3 +104,7 @@ $cartItem-totalPrice-border-color: $white;
 
 // FOOTER
 $footer-border-color: $white;
+
+// PROMPT INFO
+$promptInfo-bg-color: $black;
+$promptInfo-checkIcon-color: $emerald;
