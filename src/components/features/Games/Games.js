@@ -24,6 +24,14 @@ class Games extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    const numberOfPages = Math.ceil(this.props.games.length / this.state.productsOnPage);
+
+    if(this.state.activePage > numberOfPages - 1) {
+      this.changeActivePage(0);
+    }
+  }
+
   render () {
 
     const {genres, selectedGenres, selectGenres, games} = this.props;
