@@ -11,7 +11,7 @@ import CartItems from '../../features/CartItems/CartItemsContainer';
 const CartForm = ({changeActiveStatusCart, updateOrderDetails, ...props}) => {
 
   const submitForm = () => {
-    if(props.name && props.lastname && props.email && props.phone) {
+    if(props.name && props.lastname && props.email && props.phone && props.gamesInCartCount) {
       props.changePromptStatus('success');
     } else {
       props.changePromptStatus('error');
@@ -91,6 +91,7 @@ CartForm.propTypes = {
   phone: PropTypes.string,
   updateOrderDetails: PropTypes.func,
   changePromptStatus: PropTypes.func,
+  gamesInCartCount: PropTypes.number,
 };
 
 export default CartForm;
