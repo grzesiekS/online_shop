@@ -27,3 +27,11 @@
     }
   }
 }
+
+@media (max-width: 850px) {
+  .imgCarousel {
+    flex: 33.333%;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+}

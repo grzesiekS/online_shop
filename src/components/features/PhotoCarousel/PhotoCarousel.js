@@ -26,7 +26,7 @@ class PhotoCarousel extends React.Component {
         <PhotoDisplay photo={photos[this.state.activePhoto]} />
         <div className={styles.flexBox}>
           {photos.map(photo => (
-            <div key={photos.indexOf(photo)}>
+            <div className={styles.imgCarousel} key={photos.indexOf(photo)}>
               <img
                 className=
                   {

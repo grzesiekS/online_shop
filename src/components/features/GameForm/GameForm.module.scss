@@ -31,3 +31,9 @@ p {
   padding: 0 $padding-lr
 }
 
+@media (max-width: 280px) {
+  .price {
+    text-align: center;
+  }
+}
+
