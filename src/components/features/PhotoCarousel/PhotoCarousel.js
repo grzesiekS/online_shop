@@ -52,4 +52,8 @@ PhotoCarousel.propTypes = {
   photos: PropTypes.array,
 };
 
+PhotoCarousel.defaultProps = {
+  photos: [],
+};
+
 export default PhotoCarousel;
