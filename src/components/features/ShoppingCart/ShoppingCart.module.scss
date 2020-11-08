@@ -15,3 +15,9 @@
   border: 2px solid $shoppingCart-border-color;
   border-radius: 50px;
 }
+
+@media (max-width: 350px) {
+  .shoppingCart {
+    margin-right: 0;
+  }
+}
