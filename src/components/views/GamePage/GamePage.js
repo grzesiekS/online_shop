@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {randomImageSelection} from '../../../utils/randomImage';
 
@@ -15,6 +16,18 @@ const GamePage = ({...props}) => {
       <GameForm _id={_id} description={description} price={price} genres={props.filteredGenres} photos={photos} addToCart={props.addGameToCart} />
     </div>
   );
+};
+
+GamePage.propTypes = {
+  game: PropTypes.shape({
+    _id: PropTypes.string,
+    description: PropTypes.string,
+    name: PropTypes.string,
+    photos: PropTypes.array,
+    price: PropTypes.number,
+  }).isRequired,
+  filteredGenres: PropTypes.array,
+  addGameToCart: PropTypes.func,
 };
 
 export default GamePage;
