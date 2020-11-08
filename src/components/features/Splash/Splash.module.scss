@@ -48,3 +48,10 @@
     font-size: 32px;
   }
 }
+
+@media (max-width: 280px) {
+  .title {
+    font-size: 25px;
+    margin-left: 10px;
+  }
+}

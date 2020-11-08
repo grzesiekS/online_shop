@@ -53,3 +53,12 @@
     // }
   }
 }
+
+@media (max-width: 415px) {
+  .game {
+    img {
+      width: $game-image-width-mediaQ;
+      height: $game-image-height-mediaQ;
+    }
+  }
+}

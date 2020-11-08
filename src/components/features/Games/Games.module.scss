@@ -26,3 +26,16 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+@media (max-width: 1200px) {
+  .flexBox {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 1050px) {
+  .options {
+    flex: 100%;
+    margin-right: 0;
+  }
+}
