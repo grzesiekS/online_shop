@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 
@@ -21,6 +22,9 @@ class TopBar extends React.Component {
   }
 
   render () {
+
+    const {changeSearchValue, searchValue} = this.props;
+
     return (
       <div className={styles.container}>
         <nav>
@@ -35,6 +39,8 @@ class TopBar extends React.Component {
                 type='text'
                 className={this.state.activeSearch ? clsx(styles.serachInput, styles.active) : styles.serachInput}
                 disabled = {!this.state.activeSearch ? 'disabled' : null}
+                value={searchValue}
+                onChange={e => changeSearchValue(e.currentTarget.value)}
               />
               <a href='/#' onClick={e => {
                 e.preventDefault();
@@ -50,5 +56,14 @@ class TopBar extends React.Component {
     );
   }
 }
+
+TopBar.propTypes = {
+  changeSearchValue: PropTypes.func,
+  searchValue: PropTypes.string,
+};
+
+TopBar.defaultProps = {
+  changeSearchValue: () => {},
+};
 
 export default TopBar;

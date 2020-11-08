@@ -27,7 +27,7 @@ class Games extends React.Component {
   componentDidUpdate() {
     const numberOfPages = Math.ceil(this.props.games.length / this.state.productsOnPage);
 
-    if(this.state.activePage > numberOfPages - 1) {
+    if(this.state.activePage > numberOfPages - 1 && this.props.games.length > 0) {
       this.changeActivePage(0);
     }
   }
