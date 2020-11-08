@@ -31,6 +31,7 @@ const ADD_TO_QUANTITY = createAciotnName('ADD_TO_QUANTITY');
 const SUBSTRACT_TO_QUANTITY = createAciotnName('SUBSTRACT_TO_QUANTITY');
 const UPDATE_PRICE = createAciotnName('UPDATE_PRICE');
 const DELETE_GAME_FROM_CART = createAciotnName('DELETE_GAME_FROM_CART');
+const UPDATE_ORDER_DETAILS = createAciotnName('UPDATE_ORDER_DETAILS');
 
 // Action creators
 export const addGameToCart = payload => ({shortid, ...payload, type: ADD_GAME_TO_CART});
@@ -40,6 +41,7 @@ export const addToQty = payload => ({...payload, type: ADD_TO_QUANTITY});
 export const substractFromQty = payload => ({...payload, type: SUBSTRACT_TO_QUANTITY});
 export const updatePrice = payload => ({...payload, type: UPDATE_PRICE});
 export const deleteGameFromCart = payload => ({...payload, type: DELETE_GAME_FROM_CART});
+export const updateOrderDetails = payload => ({...payload, type: UPDATE_ORDER_DETAILS});
 
 //reducer
 export default function reducer(statePart = [], action =[]) {
@@ -167,6 +169,14 @@ export default function reducer(statePart = [], action =[]) {
         orderDetails: {
           ...statePart.orderDetails,
           gamesInCart: statePart.orderDetails.gamesInCart.filter(game => game.id !== action.id),
+        },
+      };
+    case UPDATE_ORDER_DETAILS:
+      return {
+        ...statePart,
+        orderDetails: {
+          ...statePart.orderDetails,
+          [action.key]: action.value,
         },
       };
     default:
