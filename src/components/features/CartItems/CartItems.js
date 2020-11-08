@@ -119,4 +119,8 @@ CartItems.propTypes = {
   deleteGame: PropTypes.func,
 };
 
+CartItems.defaultProps = {
+  gamesInCart: [],
+};
+
 export default CartItems;
