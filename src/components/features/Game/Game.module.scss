@@ -2,6 +2,11 @@
 
 .container {
   margin-bottom: 25px;
+  margin-right: 20px;
+
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
 
   a {
     text-decoration: none;
@@ -51,6 +56,12 @@
     // .price {
     //   font-size: 22px;
     // }
+  }
+}
+
+@media (max-width: 975px) {
+  .container {
+    margin-right: 0;
   }
 }
 
