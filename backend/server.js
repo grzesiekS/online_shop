@@ -3,12 +3,17 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 
+const genresRoutes = require('./routes/genres.routes');
+
 const app = express();
 
 /* MIDDLEWARE */
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
+
+/* API ENDPOINTS */
+app.use('/api', genresRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {
