@@ -5,9 +5,10 @@ import Games from './Games';
 describe('Games component', () => {
 
   const gameArray = [];
+  const func = () => {};
 
   it('should render without crashing', () => {
-    const component = shallow(<Games games={gameArray} />);
+    const component = shallow(<Games games={gameArray} getAllGenres={func} />);
     expect(component).toBeTruthy();
   });
 

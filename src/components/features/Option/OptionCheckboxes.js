@@ -5,17 +5,23 @@ import styles from './Option.module.scss';
 
 const OptionCheckboxes = ({values, currentValue, setOptionValue}) => (
   <div className={styles.checkboxes}>
-    {values.map(value => (
-      <label key={value._id}>
-        <input
-          type='checkbox'
-          value={value._id}
-          checked={currentValue.indexOf(value._id) !== -1 ? true : false}
-          onChange={event => setOptionValue(event.currentTarget.value)}
-        />
-        {value.name}
-      </label>
-    ))}
+    {values === undefined
+      ?
+      null
+      :
+      values.map(value => (
+        <label key={value._id}>
+          <input
+            type='checkbox'
+            value={value._id}
+            checked={currentValue.indexOf(value._id) !== -1 ? true : false}
+            onChange={event => setOptionValue(event.currentTarget.value)}
+          />
+          {value.name}
+        </label>
+      ))
+    }
+
   </div>
 );
 

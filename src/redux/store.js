@@ -1,7 +1,8 @@
-import {combineReducers, createStore} from 'redux';
+import {combineReducers, createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import mainData from '../data/main.json';
-import genresData from '../data/genres.json';
 import gamesData from '../data/games.json';
 import cartData from '../data/cartData.json';
 import promptInfoData from '../data/promptInfo.json';
@@ -15,7 +16,6 @@ import promptInfoReducer from './promptInfoRedux';
 
 const initialState = {
   main: mainData,
-  genres: genresData,
   games: gamesData,
   cartData: cartData,
   promptInfo: promptInfoData,
@@ -50,7 +50,9 @@ const storeReducer = (state, action) => {
 const store = createStore(
   storeReducer,
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  ),
 );
 
 export default store;

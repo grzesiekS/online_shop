@@ -24,6 +24,12 @@ class Games extends React.Component {
     });
   }
 
+  componentDidMount() {
+    const {getAllGenres} = this.props;
+
+    getAllGenres();
+  }
+
   componentDidUpdate() {
     const numberOfPages = Math.ceil(this.props.games.length / this.state.productsOnPage);
 
@@ -34,7 +40,7 @@ class Games extends React.Component {
 
   render () {
 
-    const {genres, selectedGenres, selectGenres, games} = this.props;
+    const {genres, selectedGenres, selectGenres, games, loadGenresStatus} = this.props;
 
     const pagesCount = Math.ceil(games.length / this.state.productsOnPage);
 
@@ -56,13 +62,18 @@ class Games extends React.Component {
     return (
       <div className={styles.container}>
         <div className={styles.options}>
-          <Option
-            type='checkboxes'
-            name='Genres'
-            values={genres}
-            currentValue={selectedGenres}
-            setOptionValue= {selectGenres}
-          />
+          {loadGenresStatus !== undefined && loadGenresStatus.active
+            ?
+            null
+            :
+            <Option
+              type='checkboxes'
+              name='Genres'
+              values={genres}
+              currentValue={selectedGenres}
+              setOptionValue= {selectGenres}
+            />
+          }
         </div>
         <div className={styles.games}>
           <h2 className={styles.title}>Games</h2>
@@ -89,6 +100,8 @@ Games.propTypes = {
   selectedGenres: PropTypes.array,
   selectGenres: PropTypes.func,
   games: PropTypes.array.isRequired,
+  getAllGenres: PropTypes.object,
+  loadGenresStatus: PropTypes.object,
 };
 
 export default Games;
