@@ -59,9 +59,14 @@ class GameForm extends React.Component {
       <div className={styles.container}>
         <p>Genres:</p>
         <ul className={styles.genreList}>
-          {genres.map(genre => (
-            <li key={genre._id}>{genre.name}</li>
-          ))}
+          {genres !== null
+            ?
+            genres.map(genre => (
+              <li key={genre._id}>{genre.name}</li>
+            ))
+            :
+            null
+          }
         </ul>
         <p className={styles.description}>{description}</p>
         <PhotoCarousel photos={photos} />

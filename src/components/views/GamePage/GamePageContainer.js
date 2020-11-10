@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { getSelectedGame } from '../../../redux/gamesRedux';
-import { filterGenresArray } from '../../../redux/genresRedux';
+import { filterGenresArray, getGenresData } from '../../../redux/genresRedux';
 import { addGameToCart } from '../../../redux/cartDataRedux';
 import { changePromptStatus } from '../../../redux/promptInfoRedux';
 
@@ -9,10 +9,11 @@ import GamePage from './GamePage';
 
 const mapStateToProps = (state, props) => {
   const game = getSelectedGame(state, props.match.params.id);
+  const filteredGenres = getGenresData(state) === undefined ? null : filterGenresArray(state, game.genres);
   return (
     {
       game,
-      filteredGenres: filterGenresArray(state, game.genres),
+      filteredGenres,
     }
   );
 };
