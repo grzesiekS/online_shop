@@ -100,7 +100,7 @@ Games.propTypes = {
   selectedGenres: PropTypes.array,
   selectGenres: PropTypes.func,
   games: PropTypes.array.isRequired,
-  getAllGenres: PropTypes.object,
+  getAllGenres: PropTypes.func,
   loadGenresStatus: PropTypes.object,
 };
 
