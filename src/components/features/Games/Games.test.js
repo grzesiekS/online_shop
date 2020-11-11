@@ -8,7 +8,7 @@ describe('Games component', () => {
   const func = () => {};
 
   it('should render without crashing', () => {
-    const component = shallow(<Games games={gameArray} getAllGenres={func} />);
+    const component = shallow(<Games games={gameArray} getAllGenres={func} getAllGames={func} />);
     expect(component).toBeTruthy();
   });
 

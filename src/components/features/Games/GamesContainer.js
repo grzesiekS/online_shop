@@ -1,7 +1,18 @@
 import { connect } from 'react-redux';
 
-import { getGenresData, getSelectedGenres, selectGenres, fetchAllGenres, getGenresLoadingData } from '../../../redux/genresRedux';
-import { filterGamesByGenres, getSearchedGames } from '../../../redux/gamesRedux';
+import {
+  getGenresData,
+  getSelectedGenres,
+  selectGenres,
+  fetchAllGenres,
+  getGenresLoadingData } from '../../../redux/genresRedux';
+import {
+  filterGamesByGenres,
+  getSearchedGames,
+  fetchAllGames,
+  getGamesLoadingData,
+  getGamesData,
+} from '../../../redux/gamesRedux';
 
 import Games from './Games';
 
@@ -12,16 +23,18 @@ const mapStateToProps = state => ({
     getSelectedGenres(state) !== undefined
       ?
       getSelectedGenres(state).length === 0
-        ? getSearchedGames(state)
+        ? getGamesData(state) !== undefined ? getSearchedGames(state) : []
         : filterGamesByGenres(state)
       :
-      getSearchedGames(state),
+      getGamesData(state) !== undefined ? getSearchedGames(state) : [],
   loadGenresStatus: getGenresLoadingData(state),
+  loadGamesStatus: getGamesLoadingData(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   selectGenres: id => dispatch(selectGenres(id)),
   getAllGenres: () => dispatch(fetchAllGenres()),
+  getAllGames: () => dispatch(fetchAllGames()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Games);

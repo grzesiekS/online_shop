@@ -3,7 +3,6 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import mainData from '../data/main.json';
-import gamesData from '../data/games.json';
 import cartData from '../data/cartData.json';
 import promptInfoData from '../data/promptInfo.json';
 
@@ -16,7 +15,6 @@ import promptInfoReducer from './promptInfoRedux';
 
 const initialState = {
   main: mainData,
-  games: gamesData,
   cartData: cartData,
   promptInfo: promptInfoData,
 };

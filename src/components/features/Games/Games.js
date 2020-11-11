@@ -25,8 +25,9 @@ class Games extends React.Component {
   }
 
   componentDidMount() {
-    const {getAllGenres} = this.props;
+    const {getAllGenres, getAllGames} = this.props;
 
+    getAllGames();
     getAllGenres();
   }
 
@@ -40,7 +41,7 @@ class Games extends React.Component {
 
   render () {
 
-    const {genres, selectedGenres, selectGenres, games, loadGenresStatus} = this.props;
+    const {genres, selectedGenres, selectGenres, games, loadGenresStatus, loadGamesStatus} = this.props;
 
     const pagesCount = Math.ceil(games.length / this.state.productsOnPage);
 
@@ -75,21 +76,26 @@ class Games extends React.Component {
             />
           }
         </div>
-        <div className={styles.games}>
-          <h2 className={styles.title}>Games</h2>
-          <div className={styles.flexBox}>
-            {games
-              .slice(this.state.activePage * this.state.productsOnPage, (this.state.activePage + 1) * this.state.productsOnPage)
-              .map(game => (
-                <Game key={game._id} name={game.name} price={game.price} images={game.photos} id={game._id} />
-              ))}
-            <ul className={styles.dots}>
-              {dots.map(dot => (
-                dot
-              ))}
-            </ul>
+        {loadGenresStatus !== undefined && loadGamesStatus.active
+          ?
+          null
+          :
+          <div className={styles.games}>
+            <h2 className={styles.title}>Games</h2>
+            <div className={styles.flexBox}>
+              {games
+                .slice(this.state.activePage * this.state.productsOnPage, (this.state.activePage + 1) * this.state.productsOnPage)
+                .map(game => (
+                  <Game key={game._id} name={game.name} price={game.price} images={game.photos} id={game._id} />
+                ))}
+              <ul className={styles.dots}>
+                {dots.map(dot => (
+                  dot
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
+        }
       </div>
     );
   }
@@ -102,6 +108,8 @@ Games.propTypes = {
   games: PropTypes.array.isRequired,
   getAllGenres: PropTypes.func,
   loadGenresStatus: PropTypes.object,
+  getAllGames: PropTypes.func,
+  loadGamesStatus: PropTypes.object,
 };
 
 export default Games;

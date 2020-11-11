@@ -39,7 +39,7 @@ class TopBar extends React.Component {
                 type='text'
                 className={this.state.activeSearch ? clsx(styles.serachInput, styles.active) : styles.serachInput}
                 disabled = {!this.state.activeSearch ? 'disabled' : null}
-                value={searchValue}
+                value={searchValue || ''}
                 onChange={e => changeSearchValue(e.currentTarget.value)}
               />
               <a href='/#' onClick={e => {
