@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const genresRoutes = require('./routes/genres.routes');
+const gamesRoutes = require('./routes/games.routes');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded());
 
 /* API ENDPOINTS */
 app.use('/api', genresRoutes);
+app.use('/api', gamesRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {
