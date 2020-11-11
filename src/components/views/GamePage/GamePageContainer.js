@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { getSelectedGame } from '../../../redux/gamesRedux';
-import { filterGenresArray, getGenresData } from '../../../redux/genresRedux';
+import { filterGenresArray, getGenresData ,fetchAllGenres } from '../../../redux/genresRedux';
 import { addGameToCart } from '../../../redux/cartDataRedux';
 import { changePromptStatus } from '../../../redux/promptInfoRedux';
 
@@ -21,6 +21,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = dispatch => ({
   addGameToCart: (id, price, qty) => dispatch(addGameToCart({id, price, qty})),
   changePromptStatus: status => dispatch(changePromptStatus({status})),
+  getGenresApi: () => dispatch(fetchAllGenres()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GamePage);

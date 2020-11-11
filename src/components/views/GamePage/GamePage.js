@@ -21,6 +21,7 @@ const GamePage = ({...props}) => {
         photos={photos}
         addToCart={props.addGameToCart}
         changePromptInfoStatus={props.changePromptStatus}
+        getGenresApi={props.getGenresApi}
       />
     </div>
   );
@@ -37,6 +38,7 @@ GamePage.propTypes = {
   filteredGenres: PropTypes.array,
   addGameToCart: PropTypes.func,
   changePromptStatus: PropTypes.func,
+  getGenresApi: PropTypes.func,
 };
 
 export default GamePage;

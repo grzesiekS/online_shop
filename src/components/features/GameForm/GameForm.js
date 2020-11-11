@@ -51,6 +51,10 @@ class GameForm extends React.Component {
     });
   }
 
+  componentDidMount() {
+    if(this.props.genres === null) this.props.getGenresApi();
+  }
+
   render() {
 
     const {_id, description, genres, photos} = this.props;
@@ -98,6 +102,7 @@ GameForm.propTypes = {
   addToCart: PropTypes.func,
   _id: PropTypes.string,
   changePromptInfoStatus: PropTypes.func,
+  getGenresApi: PropTypes.func,
 };
 
 GameForm.defaultProps = {
