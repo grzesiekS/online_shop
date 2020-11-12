@@ -57,11 +57,26 @@ export const changeSearchValue = payload => ({...payload, type: CHANGE_SEARCH_VA
 
 /* thunk creators */
 export const fetchAllGames = () => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     dispatch(fetchStarted());
 
     Axios
       .get('http://localhost:8000/api/games')
+      .then(res => {
+        dispatch(fetchSuccess(res.data));
+      })
+      .catch(err => {
+        dispatch(fetchError(err.message || false));
+      });
+  };
+};
+
+export const fetchSelectedGame = (id) => {
+  return (dispatch, getState) => {
+    dispatch(fetchStarted());
+
+    Axios
+      .get(`http://localhost:8000/api/games/${id}`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })
@@ -90,7 +105,7 @@ export default function reducer(statePart = [], action ={}) {
           active: false,
           error: false,
         },
-        data: action.payload,
+        data: Array.isArray(action.payload) ? action.payload : [action.payload],
         searchValue: '',
       };
     }

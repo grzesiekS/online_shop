@@ -52,6 +52,7 @@ class GameForm extends React.Component {
   }
 
   componentDidMount() {
+    if(this.props._id === undefined) this.props.getSelectedGameApi(this.props.gameId);
     if(this.props.genres.length === 0) this.props.getGenresApi();
   }
 
@@ -103,6 +104,8 @@ GameForm.propTypes = {
   _id: PropTypes.string,
   changePromptInfoStatus: PropTypes.func,
   getGenresApi: PropTypes.func,
+  getSelectedGameApi: PropTypes.func,
+  gameId: PropTypes.string,
 };
 
 GameForm.defaultProps = {

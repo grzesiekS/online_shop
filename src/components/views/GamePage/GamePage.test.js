@@ -10,9 +10,17 @@ const gameData = {
   price: 100,
 };
 
+const defaultMatch = {
+  params: {
+    id: '1',
+  },
+};
+
+const func = () => {};
+
 describe('GamePage component', () => {
   it('should render without crashing', () => {
-    const component = shallow(<GamePage game={gameData} />);
+    const component = shallow(<GamePage game={gameData} getSelectedGameApi={func} match={defaultMatch} />);
     expect(component).toBeTruthy();
   });
 

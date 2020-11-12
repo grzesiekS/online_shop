@@ -22,6 +22,8 @@ const GamePage = ({...props}) => {
         addToCart={props.addGameToCart}
         changePromptInfoStatus={props.changePromptStatus}
         getGenresApi={props.getGenresApi}
+        getSelectedGameApi={props.getSelectedGameApi}
+        gameId={props.match.params.id}
       />
     </div>
   );
@@ -39,6 +41,12 @@ GamePage.propTypes = {
   addGameToCart: PropTypes.func,
   changePromptStatus: PropTypes.func,
   getGenresApi: PropTypes.func,
+  getSelectedGameApi: PropTypes.func,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
 };
 
 export default GamePage;
