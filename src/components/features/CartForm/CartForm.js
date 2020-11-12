@@ -15,6 +15,7 @@ const CartForm = ({changeActiveStatusCart, updateOrderDetails, ...props}) => {
       props.changePromptStatus('success');
     } else {
       props.changePromptStatus('error');
+      props.loadCartFromLocalStorage();
     }
   };
 
@@ -33,10 +34,13 @@ const CartForm = ({changeActiveStatusCart, updateOrderDetails, ...props}) => {
           id="name"
           type="text"
           value={props.name}
-          onChange={e => updateOrderDetails(
-            Object.keys(props).find(key => props[key] === props.name),
-            e.currentTarget.value
-          )}
+          onChange={e => {
+            updateOrderDetails(
+              Object.keys(props).find(key => props[key] === props.name),
+              e.currentTarget.value
+            );
+            props.saveCartToLocalStorage(props.orderDetails);
+          }}
           required='required'
         />
         <label htmlFor="lastname">Last Name</label>
@@ -44,10 +48,13 @@ const CartForm = ({changeActiveStatusCart, updateOrderDetails, ...props}) => {
           id="lastname"
           type="text"
           value={props.lastname}
-          onChange={e => updateOrderDetails(
-            Object.keys(props).find(key => props[key] === props.lastname),
-            e.currentTarget.value
-          )}
+          onChange={e => {
+            updateOrderDetails(
+              Object.keys(props).find(key => props[key] === props.lastname),
+              e.currentTarget.value
+            );
+            props.saveCartToLocalStorage(props.orderDetails);
+          }}
           required='required'
         />
         <label htmlFor="email">E-mail</label>
@@ -55,10 +62,13 @@ const CartForm = ({changeActiveStatusCart, updateOrderDetails, ...props}) => {
           id="email"
           type="email"
           value={props.email}
-          onChange={e => updateOrderDetails(
-            Object.keys(props).find(key => props[key] === props.email),
-            e.currentTarget.value
-          )}
+          onChange={e => {
+            updateOrderDetails(
+              Object.keys(props).find(key => props[key] === props.email),
+              e.currentTarget.value
+            );
+            props.saveCartToLocalStorage(props.orderDetails);
+          }}
           required='required'
         />
         <label htmlFor="phone">Phone No.</label>
@@ -66,10 +76,13 @@ const CartForm = ({changeActiveStatusCart, updateOrderDetails, ...props}) => {
           id="phone"
           type="tel"
           value={props.phone}
-          onChange={e => updateOrderDetails(
-            Object.keys(props).find(key => props[key] === props.phone),
-            e.currentTarget.value
-          )}
+          onChange={e => {
+            updateOrderDetails(
+              Object.keys(props).find(key => props[key] === props.phone),
+              e.currentTarget.value
+            );
+            props.saveCartToLocalStorage(props.orderDetails);
+          }}
           required='required'
         />
         <Button
@@ -92,6 +105,9 @@ CartForm.propTypes = {
   updateOrderDetails: PropTypes.func,
   changePromptStatus: PropTypes.func,
   gamesInCartCount: PropTypes.number,
+  saveCartToLocalStorage: PropTypes.func,
+  orderDetails: PropTypes.object,
+  loadCartFromLocalStorage: PropTypes.func,
 };
 
 export default CartForm;

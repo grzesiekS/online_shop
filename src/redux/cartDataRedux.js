@@ -32,6 +32,7 @@ const SUBSTRACT_TO_QUANTITY = createAciotnName('SUBSTRACT_TO_QUANTITY');
 const UPDATE_PRICE = createAciotnName('UPDATE_PRICE');
 const DELETE_GAME_FROM_CART = createAciotnName('DELETE_GAME_FROM_CART');
 const UPDATE_ORDER_DETAILS = createAciotnName('UPDATE_ORDER_DETAILS');
+const UPDATE_CART_FROM_LOCALSTORAGE = createAciotnName('UPDATE_CART_FROM_LOCALSTORAGE');
 
 // Action creators
 export const addGameToCart = payload => ({shortid, ...payload, type: ADD_GAME_TO_CART});
@@ -42,10 +43,38 @@ export const substractFromQty = payload => ({...payload, type: SUBSTRACT_TO_QUAN
 export const updatePrice = payload => ({...payload, type: UPDATE_PRICE});
 export const deleteGameFromCart = payload => ({...payload, type: DELETE_GAME_FROM_CART});
 export const updateOrderDetails = payload => ({...payload, type: UPDATE_ORDER_DETAILS});
+export const fetchCartDatafromLocalStorage = payload => ({payload, type: UPDATE_CART_FROM_LOCALSTORAGE});
 
+/* thunk creator */
+export const saveCartToLocalStorage = (state) => {
+  return () => {
+    try {
+      const serialisedState = JSON.stringify(state);
+      localStorage.setItem('cartData', serialisedState);
+    } catch(err) {
+      console.warn(err);
+    }
+  };
+};
+
+export const loadCartFromLocalStorage = () => {
+  return (dispatch, getState) => {
+    try {
+      const serialisedState = JSON.parse(localStorage.getItem('cartData'));
+      if(serialisedState !== null) dispatch(fetchCartDatafromLocalStorage(serialisedState));
+    } catch(err) {
+      console.warn(err);
+    }
+  };
+};
 //reducer
 export default function reducer(statePart = [], action =[]) {
   switch(action.type) {
+    case UPDATE_CART_FROM_LOCALSTORAGE:
+      return {
+        ...statePart,
+        orderDetails: action.payload,
+      };
     case ADD_GAME_TO_CART:
       return {
         ...statePart,

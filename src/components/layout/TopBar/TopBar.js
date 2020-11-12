@@ -21,6 +21,12 @@ class TopBar extends React.Component {
     });
   }
 
+  componentDidMount() {
+    const {loadCartFromLocalStorage} = this.props;
+
+    loadCartFromLocalStorage();
+  }
+
   render () {
 
     const {changeSearchValue, searchValue} = this.props;
@@ -60,10 +66,12 @@ class TopBar extends React.Component {
 TopBar.propTypes = {
   changeSearchValue: PropTypes.func,
   searchValue: PropTypes.string,
+  loadCartFromLocalStorage: PropTypes.func,
 };
 
 TopBar.defaultProps = {
   changeSearchValue: () => {},
+  loadCartFromLocalStorage: () => {},
 };
 
 export default TopBar;
