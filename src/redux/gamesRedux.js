@@ -2,27 +2,39 @@ import Axios from 'axios';
 
 /* SELECTORS */
 
-export const getGamesData = ({games}) => games.data;
-export const getSelectedGame = ({games}, id) => games.data.filter(game => game._id === id)[0];
-export const filterGamesByGenres = ({games, genres}) => games.data.filter(game => (
-  game.description.toUpperCase().includes(games.searchValue.toUpperCase())
+export const getGamesData = ({games}) => games.data !== undefined ? games.data : [];
+export const getSelectedGame = ({games}, id) => games.data !== undefined
+  ?
+  games.data.filter(game => game._id === id)[0]
+  :
+  {};
+export const filterGamesByGenres = ({games, genres}) => games.data !== undefined
+  ?
+  games.data.filter(game => (
+    game.description.toUpperCase().includes(games.searchValue.toUpperCase())
   ||
   game.name.toUpperCase().includes(games.searchValue.toUpperCase())
-)).filter(game => {
-  let containStatus = false;
+  )).filter(game => {
+    let containStatus = false;
 
-  game.genres.forEach(gameGenres => {
-    if(genres.selected.indexOf(gameGenres) !== -1) containStatus = true;
-  });
+    game.genres.forEach(gameGenres => {
+      if(genres.selected.indexOf(gameGenres) !== -1) containStatus = true;
+    });
 
-  return containStatus;
-});
+    return containStatus;
+  })
+  :
+  [];
 export const getSearchValue = ({games}) => games.searchValue;
-export const getSearchedGames = ({games}) => games.data.filter(game => (
-  game.description.toUpperCase().includes(games.searchValue.toUpperCase())
-  ||
-  game.name.toUpperCase().includes(games.searchValue.toUpperCase())
-));
+export const getSearchedGames = ({games}) => games.data !== undefined
+  ?
+  games.data.filter(game => (
+    game.description.toUpperCase().includes(games.searchValue.toUpperCase())
+    ||
+    game.name.toUpperCase().includes(games.searchValue.toUpperCase())
+  ))
+  :
+  [];
 export const getGamesLoadingData = ({games}) => games.loading;
 
 /* ACTIONS */

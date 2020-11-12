@@ -11,7 +11,6 @@ import {
   getSearchedGames,
   fetchAllGames,
   getGamesLoadingData,
-  getGamesData,
 } from '../../../redux/gamesRedux';
 
 import Games from './Games';
@@ -20,13 +19,9 @@ const mapStateToProps = state => ({
   genres: getGenresData(state),
   selectedGenres: getSelectedGenres(state),
   games:
-    getSelectedGenres(state) !== undefined
-      ?
       getSelectedGenres(state).length === 0
-        ? getGamesData(state) !== undefined ? getSearchedGames(state) : []
-        : filterGamesByGenres(state)
-      :
-      getGamesData(state) !== undefined ? getSearchedGames(state) : [],
+        ? getSearchedGames(state)
+        : filterGamesByGenres(state),
   loadGenresStatus: getGenresLoadingData(state),
   loadGamesStatus: getGamesLoadingData(state),
 });

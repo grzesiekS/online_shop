@@ -2,9 +2,13 @@ import Axios from 'axios';
 
 /* SELECTORS */
 
-export const getGenresData = ({genres}) => genres.data;
-export const getSelectedGenres = ({genres}) => genres.selected;
-export const filterGenresArray = ({genres}, genresArray = []) => genres.data.filter(genre => genresArray.indexOf(genre._id) !== -1);
+export const getGenresData = ({genres}) => genres.data !== undefined ? genres.data : [];
+export const getSelectedGenres = ({genres}) => genres.selected !== undefined ? genres.selected : [];
+export const filterGenresArray = ({genres}, genresArray = []) => genres.data !== undefined
+  ?
+  genres.data.filter(genre => genresArray.indexOf(genre._id) !== -1)
+  :
+  [];
 export const getGenresLoadingData = ({genres}) => genres.loading;
 
 /* ACTIONS */

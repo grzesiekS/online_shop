@@ -52,7 +52,7 @@ class GameForm extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.genres === null) this.props.getGenresApi();
+    if(this.props.genres.length === 0) this.props.getGenresApi();
   }
 
   render() {
