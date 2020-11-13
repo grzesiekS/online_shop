@@ -75,7 +75,7 @@ class GameForm extends React.Component {
         </ul>
         <p className={styles.description}>{description}</p>
         <PhotoCarousel photos={photos} />
-        <p className={styles.price}>Price: {this.state.totalPrice} €</p>
+        <p className={styles.price}>Price: {this.state.totalPrice || this.props.price} €</p>
         <NumberInput
           qty={this.state.qty}
           className='alignRight'
@@ -83,7 +83,17 @@ class GameForm extends React.Component {
           minusAction={() => this.SubstractQty()}
         />
         <div className={styles.submit}>
-          <Button Type='div' onClick={() => this.SubmitGameToCart(_id, this.state.totalPrice, this.state.qty)}>Buy it now</Button>
+          <Button Type='div' onClick={() =>
+          {
+            if(this.state.totalPrice === undefined) {
+              this.setState({
+                ...this.state,
+                totalPrice: this.props.price * this.state.qty,
+              });
+            }
+            this.SubmitGameToCart(_id, this.props.price * this.state.qty, this.state.qty);
+          }
+          }>Buy it now</Button>
         </div>
       </div>
     );

@@ -60,7 +60,7 @@ export const saveCartToLocalStorage = (state) => {
 export const loadCartFromLocalStorage = () => {
   return (dispatch, getState) => {
     try {
-      const serialisedState = JSON.parse(localStorage.getItem('cartData'));
+      const serialisedState =  JSON.parse(localStorage.getItem('cartData'));
       if(serialisedState !== null) dispatch(fetchCartDatafromLocalStorage(serialisedState));
     } catch(err) {
       console.warn(err);
