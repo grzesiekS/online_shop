@@ -14,9 +14,9 @@ class CartForm extends React.Component {
   submitForm = () => {
     if(this.props.name && this.props.lastname && this.props.email && this.props.phone && this.props.gamesInCartCount) {
       this.props.changePromptStatus('success');
+      this.props.removeCartFromLocalStorage();
     } else {
       this.props.changePromptStatus('error');
-      this.props.loadCartFromLocalStorage();
     }
   }
 
@@ -108,6 +108,7 @@ CartForm.propTypes = {
   saveCartToLocalStorage: PropTypes.func,
   orderDetails: PropTypes.object,
   loadCartFromLocalStorage: PropTypes.func,
+  removeCartFromLocalStorage: PropTypes.func,
 };
 
 export default CartForm;

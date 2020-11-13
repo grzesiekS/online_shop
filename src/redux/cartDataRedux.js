@@ -67,6 +67,17 @@ export const loadCartFromLocalStorage = () => {
     }
   };
 };
+
+export const removeCartFromLocalStorage = () => {
+  return () => {
+    try {
+      localStorage.removeItem('cartData');
+    } catch(err) {
+      console.warn(err);
+    }
+  };
+};
+
 //reducer
 export default function reducer(statePart = [], action =[]) {
   switch(action.type) {

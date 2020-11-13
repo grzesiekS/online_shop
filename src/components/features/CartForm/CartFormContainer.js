@@ -6,6 +6,7 @@ import {
   updateOrderDetails,
   getGamesInCart,
   saveCartToLocalStorage,
+  removeCartFromLocalStorage,
 } from '../../../redux/cartDataRedux';
 import {changePromptStatus} from '../../../redux/promptInfoRedux';
 
@@ -25,6 +26,7 @@ const mapDispatchToProps = dispatch => ({
   updateOrderDetails: (key, value) => dispatch(updateOrderDetails({key, value})),
   changePromptStatus: status => dispatch(changePromptStatus({status})),
   saveCartToLocalStorage: state => dispatch(saveCartToLocalStorage(state)),
+  removeCartFromLocalStorage: () => dispatch(removeCartFromLocalStorage()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartForm);
