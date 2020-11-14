@@ -6,6 +6,7 @@ import styles from './GameForm.module.scss';
 import Button from '../../common/Button/Button';
 import PhotoCarousel from '../../features/PhotoCarousel/PhotoCarousel';
 import NumberInput from '../../features/NumberInput/NumberInput';
+import Load from '../../common/Load/Load';
 
 class GameForm extends React.Component {
   state = {
@@ -61,40 +62,47 @@ class GameForm extends React.Component {
     const {_id, description, genres, photos} = this.props;
 
     return (
-      <div className={styles.container}>
-        <p>Genres:</p>
-        <ul className={styles.genreList}>
-          {genres !== null
-            ?
-            genres.map(genre => (
-              <li key={genre._id}>{genre.name}</li>
-            ))
-            :
-            null
-          }
-        </ul>
-        <p className={styles.description}>{description}</p>
-        <PhotoCarousel photos={photos} />
-        <p className={styles.price}>Price: {this.state.totalPrice || this.props.price} €</p>
-        <NumberInput
-          qty={this.state.qty}
-          className='alignRight'
-          plusAction={() => this.AddQty()}
-          minusAction={() => this.SubstractQty()}
-        />
-        <div className={styles.submit}>
-          <Button Type='div' onClick={() =>
-          {
-            if(this.state.totalPrice === undefined) {
-              this.setState({
-                ...this.state,
-                totalPrice: this.props.price * this.state.qty,
-              });
-            }
-            this.SubmitGameToCart(_id, this.props.price * this.state.qty, this.state.qty);
-          }
-          }>Buy it now</Button>
-        </div>
+      <div>
+        {_id === undefined
+          ?
+          <Load />
+          :
+          <div className={styles.container}>
+            <p>Genres:</p>
+            <ul className={styles.genreList}>
+              {genres !== null
+                ?
+                genres.map(genre => (
+                  <li key={genre._id}>{genre.name}</li>
+                ))
+                :
+                null
+              }
+            </ul>
+            <p className={styles.description}>{description}</p>
+            <PhotoCarousel photos={photos} />
+            <p className={styles.price}>Price: {this.state.totalPrice || this.props.price} €</p>
+            <NumberInput
+              qty={this.state.qty}
+              className='alignRight'
+              plusAction={() => this.AddQty()}
+              minusAction={() => this.SubstractQty()}
+            />
+            <div className={styles.submit}>
+              <Button Type='div' onClick={() =>
+              {
+                if(this.state.totalPrice === undefined) {
+                  this.setState({
+                    ...this.state,
+                    totalPrice: this.props.price * this.state.qty,
+                  });
+                }
+                this.SubmitGameToCart(_id, this.props.price * this.state.qty, this.state.qty);
+              }
+              }>Buy it now</Button>
+            </div>
+          </div>
+        }
       </div>
     );
   }

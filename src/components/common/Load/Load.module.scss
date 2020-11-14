@@ -1,0 +1,34 @@
+@import "../../../styles/settings.scss";
+@import "../../../styles/animations.scss";
+
+.container {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  height: $dot-width-height;
+  width: $dot-width-height;
+  background-color: white;
+  margin-right: 10px;
+  border-radius: 50px;
+}
+
+#dot1 {
+  animation: jump $load-animation-time infinite;
+}
+
+#dot2 {
+  animation: jump $load-animation-time infinite;
+  animation-delay: $load-short-delay;
+}
+
+#dot3 {
+  animation: jump $load-animation-time infinite;
+  animation-delay: $load-long-delay;
+}

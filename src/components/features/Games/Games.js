@@ -10,6 +10,7 @@ import styles from './Games.module.scss';
 import Option from '../Option/Option';
 import Game from '../Game/Game';
 import Button from '../../common/Button/Button';
+import Load from '../../common/Load/Load';
 
 class Games extends React.Component {
   state = {
@@ -61,38 +62,40 @@ class Games extends React.Component {
     }
 
     return (
-      <div className={styles.container}>
-        <div className={styles.options}>
-          {loadGenresStatus !== undefined && loadGenresStatus.active
-            ?
-            null
-            :
-            <Option
-              type='checkboxes'
-              name='Genres'
-              values={genres}
-              currentValue={selectedGenres}
-              setOptionValue= {selectGenres}
-            />
-          }
-        </div>
+      <div>
         {loadGenresStatus !== undefined && loadGamesStatus.active
           ?
-          null
+          <Load />
           :
-          <div className={styles.games}>
-            <h2 className={styles.title}>Games</h2>
-            <div className={styles.flexBox}>
-              {games
-                .slice(this.state.activePage * this.state.productsOnPage, (this.state.activePage + 1) * this.state.productsOnPage)
-                .map(game => (
-                  <Game key={game._id} name={game.name} price={game.price} images={game.photos} id={game._id} />
-                ))}
-              <ul className={styles.dots}>
-                {dots.map(dot => (
-                  dot
-                ))}
-              </ul>
+          <div className={styles.container}>
+            <div className={styles.options}>
+              {loadGenresStatus !== undefined && loadGenresStatus.active
+                ?
+                null
+                :
+                <Option
+                  type='checkboxes'
+                  name='Genres'
+                  values={genres}
+                  currentValue={selectedGenres}
+                  setOptionValue= {selectGenres}
+                />
+              }
+            </div>
+            <div className={styles.games}>
+              <h2 className={styles.title}>Games</h2>
+              <div className={styles.flexBox}>
+                {games
+                  .slice(this.state.activePage * this.state.productsOnPage, (this.state.activePage + 1) * this.state.productsOnPage)
+                  .map(game => (
+                    <Game key={game._id} name={game.name} price={game.price} images={game.photos} id={game._id} />
+                  ))}
+                <ul className={styles.dots}>
+                  {dots.map(dot => (
+                    dot
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         }
