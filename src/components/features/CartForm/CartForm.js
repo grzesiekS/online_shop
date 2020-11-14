@@ -12,9 +12,14 @@ import CartItems from '../../features/CartItems/CartItemsContainer';
 class CartForm extends React.Component {
 
   submitForm = () => {
-    if(this.props.name && this.props.lastname && this.props.email && this.props.phone && this.props.gamesInCartCount) {
+    if(this.props.name
+      && this.props.lastname
+      && this.props.email
+      && this.props.phone
+      && this.props.gamesInCartCount
+      && this.props.email.split('@').length === 2) {
       this.props.changePromptStatus('success');
-      this.props.removeCartFromLocalStorage();
+      this.props.addNewOrder(this.props.orderDetails);
     } else {
       this.props.changePromptStatus('error');
     }
@@ -108,7 +113,7 @@ CartForm.propTypes = {
   saveCartToLocalStorage: PropTypes.func,
   orderDetails: PropTypes.object,
   loadCartFromLocalStorage: PropTypes.func,
-  removeCartFromLocalStorage: PropTypes.func,
+  addNewOrder: PropTypes.func,
 };
 
 export default CartForm;

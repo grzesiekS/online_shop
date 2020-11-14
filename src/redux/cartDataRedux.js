@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import shortid from 'shortid';
 
 /* SELECTORS */
@@ -21,20 +22,25 @@ export const getTotalQty = ({cartData}) => cartData.orderDetails.gamesInCart.map
 
 // action name creator
 const reducerName = 'cartData';
-const createAciotnName = name => `app/${reducerName}/${name}`;
+const createActionName = name => `app/${reducerName}/${name}`;
 
 // Action types
-const ADD_GAME_TO_CART = createAciotnName('ADD_GAME_TO_CART');
-const ONOFF_CART_FORM = createAciotnName('ONOFF_CART_FORM');
-const CHANGE_DESC_GAME_IN_CART = createAciotnName('CHANGE_DESC_GAME_IN_CART');
-const ADD_TO_QUANTITY = createAciotnName('ADD_TO_QUANTITY');
-const SUBSTRACT_TO_QUANTITY = createAciotnName('SUBSTRACT_TO_QUANTITY');
-const UPDATE_PRICE = createAciotnName('UPDATE_PRICE');
-const DELETE_GAME_FROM_CART = createAciotnName('DELETE_GAME_FROM_CART');
-const UPDATE_ORDER_DETAILS = createAciotnName('UPDATE_ORDER_DETAILS');
-const UPDATE_CART_FROM_LOCALSTORAGE = createAciotnName('UPDATE_CART_FROM_LOCALSTORAGE');
+const ADD_GAME_TO_CART = createActionName('ADD_GAME_TO_CART');
+const ONOFF_CART_FORM = createActionName('ONOFF_CART_FORM');
+const CHANGE_DESC_GAME_IN_CART = createActionName('CHANGE_DESC_GAME_IN_CART');
+const ADD_TO_QUANTITY = createActionName('ADD_TO_QUANTITY');
+const SUBSTRACT_TO_QUANTITY = createActionName('SUBSTRACT_TO_QUANTITY');
+const UPDATE_PRICE = createActionName('UPDATE_PRICE');
+const DELETE_GAME_FROM_CART = createActionName('DELETE_GAME_FROM_CART');
+const UPDATE_ORDER_DETAILS = createActionName('UPDATE_ORDER_DETAILS');
+const UPDATE_CART_FROM_LOCALSTORAGE = createActionName('UPDATE_CART_FROM_LOCALSTORAGE');
+const FETCH_START = createActionName('FETCH_START');
+const FETCH_ERROR = createActionName('FETCH_ERROR');
+const SET_DEFAULT_STATE = createActionName('SET_DEFAULT_STATE');
 
 // Action creators
+export const fetchStarted = payload => ({ payload, type: FETCH_START });
+export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 export const addGameToCart = payload => ({shortid, ...payload, type: ADD_GAME_TO_CART});
 export const changeActiveCartForm = () => ({type: ONOFF_CART_FORM});
 export const changeDescGameCart = payload => ({...payload, type: CHANGE_DESC_GAME_IN_CART});
@@ -44,6 +50,7 @@ export const updatePrice = payload => ({...payload, type: UPDATE_PRICE});
 export const deleteGameFromCart = payload => ({...payload, type: DELETE_GAME_FROM_CART});
 export const updateOrderDetails = payload => ({...payload, type: UPDATE_ORDER_DETAILS});
 export const fetchCartDatafromLocalStorage = payload => ({payload, type: UPDATE_CART_FROM_LOCALSTORAGE});
+export const setDefaultState = () => ({type: SET_DEFAULT_STATE});
 
 /* thunk creator */
 export const saveCartToLocalStorage = (state) => {
@@ -78,9 +85,53 @@ export const removeCartFromLocalStorage = () => {
   };
 };
 
+export const addNewOrder = post => {
+  return async dispatch => {
+    dispatch(fetchStarted());
+
+    try {
+      await Axios.post('http://localhost:8000/api/orders', post);
+      await new Promise((resolve) => resolve());
+      dispatch(removeCartFromLocalStorage());
+      dispatch(setDefaultState());
+    } catch(e) {
+      dispatch(fetchError(e.message || true));
+    }
+  };
+};
+
 //reducer
 export default function reducer(statePart = [], action =[]) {
   switch(action.type) {
+    case FETCH_START: {
+      return {
+        ...statePart,
+        loading: {
+          active: true,
+          error: false,
+        },
+      };
+    }
+    case FETCH_ERROR: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: action.payload,
+        },
+      };
+    }
+    case SET_DEFAULT_STATE:
+      return {
+        ...statePart,
+        orderDetails: {
+          name: '',
+          lastname: '',
+          email: '',
+          phone: '',
+          gamesInCart: [],
+        },
+      };
     case UPDATE_CART_FROM_LOCALSTORAGE:
       return {
         ...statePart,
