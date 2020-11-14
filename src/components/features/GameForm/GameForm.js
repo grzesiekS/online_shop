@@ -38,6 +38,14 @@ class GameForm extends React.Component {
     if(id && price > 0 && qty > 0) {
       this.props.addToCart(id, price, qty);
       this.props.changePromptInfoStatus('success');
+      this.props.saveCartToLocalStorage(
+        {
+          game: this.props._id,
+          price: this.state.totalPrice,
+          quantity: this.state.qty,
+          description: '',
+        }
+      );
       this.DefaultState();
     } else {
       this.props.changePromptInfoStatus('error');
@@ -124,6 +132,7 @@ GameForm.propTypes = {
   getGenresApi: PropTypes.func,
   getSelectedGameApi: PropTypes.func,
   gameId: PropTypes.string,
+  saveCartToLocalStorage: PropTypes.func,
 };
 
 GameForm.defaultProps = {

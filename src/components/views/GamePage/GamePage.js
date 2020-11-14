@@ -24,6 +24,7 @@ const GamePage = ({...props}) => {
         getGenresApi={props.getGenresApi}
         getSelectedGameApi={props.getSelectedGameApi}
         gameId={props.match.params.id}
+        saveCartToLocalStorage={props.saveCartToLocalStorage}
       />
     </div>
   );
@@ -47,6 +48,7 @@ GamePage.propTypes = {
       id: PropTypes.string,
     }),
   }),
+  saveCartToLocalStorage: PropTypes.func,
 };
 
 export default GamePage;

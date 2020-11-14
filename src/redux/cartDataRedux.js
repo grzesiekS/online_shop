@@ -64,6 +64,27 @@ export const saveCartToLocalStorage = (state) => {
   };
 };
 
+export const saveGameToLocalStorage = statePart => {
+  return (dispatch) => {
+    try {
+      const serialisedData = JSON.parse(localStorage.getItem('cartData'));
+      if (serialisedData !== null) {
+        serialisedData.gamesInCart.push(statePart);
+        dispatch(saveCartToLocalStorage(serialisedData));
+      } else {
+        console.log(statePart);
+        dispatch(saveCartToLocalStorage({
+          gamesInCart: [
+            statePart,
+          ],
+        }));
+      }
+    } catch(err) {
+      console.warn(err);
+    }
+  };
+};
+
 export const loadCartFromLocalStorage = () => {
   return (dispatch, getState) => {
     try {

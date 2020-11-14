@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { getSelectedGame, fetchSelectedGame } from '../../../redux/gamesRedux';
 import { filterGenresArray ,fetchAllGenres } from '../../../redux/genresRedux';
-import { addGameToCart } from '../../../redux/cartDataRedux';
+import { addGameToCart, saveGameToLocalStorage } from '../../../redux/cartDataRedux';
 import { changePromptStatus } from '../../../redux/promptInfoRedux';
 
 import GamePage from './GamePage';
@@ -22,6 +22,7 @@ const mapDispatchToProps = dispatch => ({
   changePromptStatus: status => dispatch(changePromptStatus({status})),
   getGenresApi: () => dispatch(fetchAllGenres()),
   getSelectedGameApi: id => dispatch(fetchSelectedGame(id)),
+  saveCartToLocalStorage: cartDetails => dispatch(saveGameToLocalStorage(cartDetails)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GamePage);
