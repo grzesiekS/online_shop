@@ -1,7 +1,9 @@
 @import "../../../styles/settings.scss";
+@import "../../../styles/animations.scss";
 
 .shoppingCart {
   margin: 45px 25px 0 0;
+  animation: fadeIn $animationTime-long;
 }
 
 .icon {
