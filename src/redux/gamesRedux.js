@@ -105,7 +105,16 @@ export default function reducer(statePart = [], action ={}) {
           active: false,
           error: false,
         },
-        data: Array.isArray(action.payload) ? action.payload : [action.payload],
+        data: Array.isArray(action.payload)
+          ? action.payload
+          : statePart.data !== undefined
+            ?
+            [
+              ...statePart.data.filter(game => game._id !== action.payload._id),
+              action.payload,
+            ]
+            :
+            [action.payload],
         searchValue: '',
       };
     }

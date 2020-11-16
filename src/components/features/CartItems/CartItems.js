@@ -9,6 +9,7 @@ import styles from './CartItems.module.scss';
 import NumberInput from '../NumberInput/NumberInput';
 import ArrowIcon from '../../common/ArrowIcon/ArrowIcon';
 import Button from '../../common/Button/Button';
+import Load from '../../common/Load/Load';
 
 class CartItems extends React.Component {
   state = {
@@ -46,6 +47,20 @@ class CartItems extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if(this.props.getGamesInCartShort.length > 0) {
+      let gameError = false;
+      this.props.gamesInCart.forEach(gameInCart => {
+        if(gameInCart.game === undefined) gameError = true;
+      });
+      if(gameError) {
+        this.props.getGamesInCartShort.forEach(gameInCart => {
+          this.props.fetchSelectedGame(gameInCart.game);
+        });
+      }
+    }
+  }
+
   render() {
 
     const {gamesInCart, totalPrice, changeDesc, deleteGame} = this.props;
@@ -53,51 +68,55 @@ class CartItems extends React.Component {
     return (
       <div className={styles.container}>
         {gamesInCart.map(gameInCart => (
-          <div
-            key={gamesInCart.indexOf(gameInCart)}
-            className={styles.cartItem}
-          >
-            <p className={styles.name}>{gameInCart.game.name}</p>
-            <p className={styles.qty}>QTY: {gameInCart.quantity}</p>
-            <p className={styles.price}>{gameInCart.price} €</p>
-            <div className={styles.arrowIcon}>
-              <ArrowIcon
-                className={this.state.activeCarts.indexOf(gameInCart.id) !== -1 ? 'active' : null}
-                clickHandler={() => this.changeActiveState(gameInCart.id)}
-              />
-            </div>
+          gameInCart.game === undefined
+            ?
+            <Load key={gamesInCart.indexOf(gameInCart)} />
+            :
             <div
-              className={
-                this.state.activeCarts.indexOf(gameInCart.id) !== -1
-                  ?
-                  clsx(styles.orderDetails, styles.active)
-                  :
-                  styles.orderDetails }
+              key={gamesInCart.indexOf(gameInCart)}
+              className={styles.cartItem}
             >
-              <label htmlFor='description'>Short Game Description:</label>
-              <textarea
-                id='description'
-                className={styles.description}
-                value={gameInCart.description}
-                onChange={e => changeDesc(gameInCart.id ,e.currentTarget.value)}
-              />
-              <div className={styles.funcButtons}>
-                <Button
-                  Type='div'
-                  className='icon'
-                  onClick={() => deleteGame(gameInCart.id)}
-                >
-                  <FontAwesomeIcon icon={faTrash} className={styles.trashIcon} />
-                </Button>
-                <NumberInput
-                  qty={gameInCart.quantity}
-                  className='alignRight'
-                  plusAction={() => this.increasePrice(gameInCart.id, gameInCart.game.price, gameInCart.quantity)}
-                  minusAction={() => this.reducePrice(gameInCart.id, gameInCart.game.price, gameInCart.price, gameInCart.quantity)}
+              <p className={styles.name}>{gameInCart.game.name}</p>
+              <p className={styles.qty}>QTY: {gameInCart.quantity}</p>
+              <p className={styles.price}>{gameInCart.price} €</p>
+              <div className={styles.arrowIcon}>
+                <ArrowIcon
+                  className={this.state.activeCarts.indexOf(gameInCart.id) !== -1 ? 'active' : null}
+                  clickHandler={() => this.changeActiveState(gameInCart.id)}
                 />
               </div>
+              <div
+                className={
+                  this.state.activeCarts.indexOf(gameInCart.id) !== -1
+                    ?
+                    clsx(styles.orderDetails, styles.active)
+                    :
+                    styles.orderDetails }
+              >
+                <label htmlFor='description'>Short Game Description:</label>
+                <textarea
+                  id='description'
+                  className={styles.description}
+                  value={gameInCart.description}
+                  onChange={e => changeDesc(gameInCart.id ,e.currentTarget.value)}
+                />
+                <div className={styles.funcButtons}>
+                  <Button
+                    Type='div'
+                    className='icon'
+                    onClick={() => deleteGame(gameInCart.id)}
+                  >
+                    <FontAwesomeIcon icon={faTrash} className={styles.trashIcon} />
+                  </Button>
+                  <NumberInput
+                    qty={gameInCart.quantity}
+                    className='alignRight'
+                    plusAction={() => this.increasePrice(gameInCart.id, gameInCart.game.price, gameInCart.quantity)}
+                    minusAction={() => this.reducePrice(gameInCart.id, gameInCart.game.price, gameInCart.price, gameInCart.quantity)}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
         ))}
 
         <div className={styles.totalPrice}>
@@ -117,6 +136,8 @@ CartItems.propTypes = {
   substractFromQty: PropTypes.func,
   updatePrice: PropTypes.func,
   deleteGame: PropTypes.func,
+  getGamesInCartShort: PropTypes.array,
+  fetchSelectedGame: PropTypes.func,
 };
 
 CartItems.defaultProps = {
