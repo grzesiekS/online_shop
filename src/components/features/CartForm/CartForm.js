@@ -45,7 +45,7 @@ class CartForm extends React.Component {
           <input
             id="name"
             type="text"
-            value={this.props.name}
+            value={this.props.name || ''}
             onChange={e =>
               this.props.updateOrderDetails(
                 Object.keys(this.props).find(key => this.props[key] === this.props.name),
@@ -57,7 +57,7 @@ class CartForm extends React.Component {
           <input
             id="lastname"
             type="text"
-            value={this.props.lastname}
+            value={this.props.lastname || ''}
             onChange={e =>
               this.props.updateOrderDetails(
                 Object.keys(this.props).find(key => this.props[key] === this.props.lastname),
@@ -69,7 +69,7 @@ class CartForm extends React.Component {
           <input
             id="email"
             type="email"
-            value={this.props.email}
+            value={this.props.email || ''}
             onChange={e =>
               this.props.updateOrderDetails(
                 Object.keys(this.props).find(key => this.props[key] === this.props.email),
@@ -81,7 +81,7 @@ class CartForm extends React.Component {
           <input
             id="phone"
             type="tel"
-            value={this.props.phone}
+            value={this.props.phone || ''}
             onChange={e =>
               this.props.updateOrderDetails(
                 Object.keys(this.props).find(key => this.props[key] === this.props.phone),
