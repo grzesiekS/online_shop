@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 
 import styles from './GameForm.module.scss';
 
@@ -36,10 +37,12 @@ class GameForm extends React.Component {
 
   SubmitGameToCart = (id, price, qty) => {
     if(id && price > 0 && qty > 0) {
-      this.props.addToCart(id, price, qty);
+      const gameInCartId = shortid();
+      this.props.addToCart(id, price, qty, gameInCartId);
       this.props.changePromptInfoStatus('success');
       this.props.saveCartToLocalStorage(
         {
+          id: gameInCartId,
           game: this.props._id,
           price: this.state.totalPrice,
           quantity: this.state.qty,

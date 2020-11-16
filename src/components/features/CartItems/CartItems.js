@@ -16,6 +16,7 @@ class CartItems extends React.Component {
   }
 
   changeActiveState = (cartId) => {
+    console.log(cartId);
     this.setState({
       ...this.state,
       activeCarts:

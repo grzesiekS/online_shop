@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import shortid from 'shortid';
 
 /* SELECTORS */
 export const getOrderDetails = ({cartData}) => cartData.orderDetails;
@@ -41,7 +40,7 @@ const SET_DEFAULT_STATE = createActionName('SET_DEFAULT_STATE');
 // Action creators
 export const fetchStarted = payload => ({ payload, type: FETCH_START });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
-export const addGameToCart = payload => ({shortid, ...payload, type: ADD_GAME_TO_CART});
+export const addGameToCart = payload => ({...payload, type: ADD_GAME_TO_CART});
 export const changeActiveCartForm = () => ({type: ONOFF_CART_FORM});
 export const changeDescGameCart = payload => ({...payload, type: CHANGE_DESC_GAME_IN_CART});
 export const addToQty = payload => ({...payload, type: ADD_TO_QUANTITY});
@@ -166,7 +165,7 @@ export default function reducer(statePart = [], action =[]) {
           gamesInCart: [
             ...statePart.orderDetails.gamesInCart,
             {
-              id: action.shortid(),
+              id: action.gameInCartId,
               game: action.id,
               price: action.price,
               quantity: action.qty,
