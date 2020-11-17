@@ -14,7 +14,7 @@ const Game = ({name, images, price, id}) => {
     <div className={styles.container}>
       <Link to={`/game/${id}`}>
         <div className={styles.game}>
-          <img src={rndImage} alt='Game' />
+          <img src={rndImage} alt='Game' width='300' height='450' />
           <h2 className={styles.title}>{name}</h2>
           <p className={styles.price}>price start from <span className={styles.highlight}>{price} €</span></p>
         </div>

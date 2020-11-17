@@ -75,19 +75,21 @@ class TopBar extends React.Component {
         <nav>
           <ul className={!this.state.navBar ? clsx(styles.navigation, styles.disable) : styles.navigation}>
             <li>
-              <Link to='/'>
+              <Link aria-label='logo' to='/'>
                 <FontAwesomeIcon icon={faGamepad} className={styles.logo} />
               </Link>
             </li>
             <li>
+              <label htmlFor='search' aria-label='search input'></label>
               <input
+                id='search'
                 type='text'
                 className={this.state.activeSearch ? clsx(styles.serachInput, styles.active) : styles.serachInput}
                 disabled = {!this.state.activeSearch ? 'disabled' : null}
                 value={searchValue || ''}
                 onChange={e => changeSearchValue(e.currentTarget.value)}
               />
-              <a href='/#' onClick={e => {
+              <a aria-label='search' href='/#' onClick={e => {
                 e.preventDefault();
                 this.changeActiveSearchState();
               }}>

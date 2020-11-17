@@ -9,7 +9,7 @@ const Splash = ({title, image, children}) => (
       <h1 className={styles.title}>{title}</h1>
       {children}
     </div>
-    <img className={styles.image} src={image} alt='play the game'/>
+    <img className={styles.image} src={image} alt='play the game' width='1600' height='300' />
   </section>
 );
 

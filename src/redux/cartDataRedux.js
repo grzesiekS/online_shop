@@ -71,7 +71,6 @@ export const saveGameToLocalStorage = statePart => {
         serialisedData.gamesInCart.push(statePart);
         dispatch(saveCartToLocalStorage(serialisedData));
       } else {
-        console.log(statePart);
         dispatch(saveCartToLocalStorage({
           gamesInCart: [
             statePart,
