@@ -1,9 +1,8 @@
 /* eslint-disable no-restricted-globals */
 var cacheName = 'app-name';
 var filesToCache = [
-  '../src/data/cartData.json',
-  '../src/data/main.json',
-  '../src/data/promptInfo.json',
+  '/images/',
+  '/index.html',
 ];
 self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');
@@ -17,7 +16,9 @@ self.addEventListener('install', function(e) {
 self.addEventListener('activate',  event => {
   event.waitUntil(self.clients.claim());
 });
+
 self.addEventListener('fetch', event => {
+  if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin') return;
   event.respondWith(
     caches.match(event.request, {ignoreSearch:true}).then(response => {
       return response || fetch(event.request);

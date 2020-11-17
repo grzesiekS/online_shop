@@ -11,22 +11,22 @@ const Footer = () => (
     <h2>Visit us on social medias</h2>
     <ul className={styles.socialMedia}>
       <li>
-        <Button href='/#' className='icon'>
+        <Button Type='div' className='icon'>
           <FontAwesomeIcon icon={faFacebook} className={styles.icon} />
         </Button>
       </li>
       <li>
-        <Button href='/#' className='icon'>
+        <Button Type='div' className='icon'>
           <FontAwesomeIcon icon={faInstagram} className={styles.icon} />
         </Button>
       </li>
       <li>
-        <Button href='/#' className='icon'>
+        <Button Type='div' className='icon'>
           <FontAwesomeIcon icon={faTwitter} className={styles.icon} />
         </Button>
       </li>
       <li>
-        <Button href='/#' className='icon'>
+        <Button Type='div' className='icon'>
           <FontAwesomeIcon icon={faLinkedin} className={styles.icon} />
         </Button>
       </li>
