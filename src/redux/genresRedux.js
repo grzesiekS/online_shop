@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import {API_URL} from '../config';
 
 /* SELECTORS */
 
@@ -35,7 +36,7 @@ export const fetchAllGenres = () => {
     dispatch(fetchStarted());
 
     Axios
-      .get('http://localhost:8000/api/genres')
+      .get(`${API_URL}/genres`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })

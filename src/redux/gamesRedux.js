@@ -1,7 +1,7 @@
 import Axios from 'axios';
+import {API_URL} from '../config';
 
 /* SELECTORS */
-
 export const getGamesData = ({games}) => games.data !== undefined ? games.data : [];
 export const getSelectedGame = ({games}, id) => games.data !== undefined
   ?
@@ -61,7 +61,7 @@ export const fetchAllGames = () => {
     dispatch(fetchStarted());
 
     Axios
-      .get('http://localhost:8000/api/games')
+      .get(`${API_URL}/games`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })
@@ -76,7 +76,7 @@ export const fetchSelectedGame = (id) => {
     dispatch(fetchStarted());
 
     Axios
-      .get(`http://localhost:8000/api/games/${id}`)
+      .get(`${API_URL}/games/${id}`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })

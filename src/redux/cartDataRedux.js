@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import {API_URL} from '../config';
 
 /* SELECTORS */
 export const getOrderDetails = ({cartData}) => cartData.orderDetails;
@@ -109,7 +110,7 @@ export const addNewOrder = post => {
     dispatch(fetchStarted());
 
     try {
-      await Axios.post('http://localhost:8000/api/orders', post);
+      await Axios.post(`${API_URL}/orders`, post);
       await new Promise((resolve) => resolve());
       dispatch(removeCartFromLocalStorage());
       dispatch(setDefaultState());
