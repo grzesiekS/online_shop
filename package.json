@@ -42,11 +42,13 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "run-p start:* ",
-    "start-silent": "run-p start > /dev/null",
-    "start:react": "react-scripts start",
-    "start-and-test": "run-p start-silent test ",
-    "build": "react-scripts build",
+    "start": "nodemon backend/server.js",
+    "build": "yarn install && yarn build",
+    "start-client": "run-p start-client:* ",
+    "start-client-silent": "run-p start > /dev/null",
+    "start-client:react": "react-scripts start",
+    "start-client-and-test": "run-p start-silent test ",
+    "build-client": "react-scripts build",
     "test": "react-scripts test --noStackTrace",
     "test-all": "react-scripts test --watchAll=false --noStackTrace",
     "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",
