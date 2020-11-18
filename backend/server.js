@@ -31,7 +31,9 @@ app.use('*', (req, res) => {
 });
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/onlineShop', { useNewUrlParser: true, useUnifiedTopology: true });
+const dbURI = process.env.NODE_ENV === 'production' ? `mongodb+srv://${process.env.LOGIN_DB}:${process.env.PASSWORD_DB}@cluster0.dorur.azure.mongodb.net/onlineGameShop?retryWrites=true&w=majority` : 'mongodb://localhost:27017/onlineShop';
+
+mongoose.connect( dbURI, {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Successfully connected to the database');
