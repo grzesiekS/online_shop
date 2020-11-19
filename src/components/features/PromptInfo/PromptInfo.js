@@ -31,8 +31,8 @@ class PromptInfo extends React.Component {
     }
   };
 
-  componentDidUpdate() {
-    if(this.props.promptStatus !== null) {
+  componentDidUpdate(prevProps) {
+    if(this.props.promptStatus !== null && (prevProps.promptStatus === undefined || prevProps.promptStatus === null)) {
       setTimeout(() => this.props.changeStatus(null), 1500);
     }
   }
