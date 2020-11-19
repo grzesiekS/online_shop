@@ -43,9 +43,15 @@
     background-color: $cartForm-input-bg-color;
     color: $cartForm-input-text-color;
     border: $border-width solid $cartForm-input-border-color;
+    transition: $shortTransition;
 
     &:focus {
       outline: none;
+    }
+
+    &.error {
+      border-color: $cartForm-inpot-error-border-color;
+      border-width: 2px;
     }
   }
 }

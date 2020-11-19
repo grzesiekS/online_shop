@@ -7,7 +7,10 @@ exports.sendOrder = async (req, res) => {
     const bodySanitize = sanitize(req.body);
     const { name, lastname, email, phone, gamesInCart } = bodySanitize;
 
-    if(email.split('@').length === 2 && email.indexOf(' ') === -1) {
+    if(email.split('@').length === 2
+      && email.indexOf(' ') === -1
+      && email.split('.').length === 2
+      && email.split('.')[1] !== '') {
       const newOrder = new Order(
         {
           name: name,

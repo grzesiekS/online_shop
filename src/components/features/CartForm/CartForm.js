@@ -10,6 +10,9 @@ import CartItems from '../../features/CartItems/CartItemsContainer';
 
 
 class CartForm extends React.Component {
+  state = {
+    errorInputs: [],
+  }
 
   submitForm = () => {
     if(this.props.name
@@ -19,16 +22,59 @@ class CartForm extends React.Component {
       && this.props.gamesInCartCount
       && this.props.email
       && this.props.email.split('@').length === 2
+      && this.props.email.split('.').length === 2
+      && this.props.email.split('.')[1] !== ''
       && this.props.email.indexOf(' ') === -1) {
       this.props.changePromptStatus('success');
       this.props.addNewOrder(this.props.orderDetails);
     } else {
       this.props.changePromptStatus('error');
+      if(!this.props.name) this.addErrorInputState('name');
+      if(!this.props.lastname) this.addErrorInputState('lastname');
+      if(!this.props.phone || this.props.phone.length < 9) this.addErrorInputState('phone');
+      if(!this.props.email
+        || this.props.email.split('@').length !== 2
+        || this.props.email.indexOf(' ') !== -1
+        || this.props.email.split('.').length !== 2
+        || this.props.email.split('.')[1] === '') this.addErrorInputState('email');
     }
   }
 
-  componentDidUpdate() {
+  addErrorInputState = input => {
+    const newErrorInput = this.state.errorInputs;
+    if(newErrorInput.indexOf(input) === -1) newErrorInput.push(input);
+
+    this.setState({
+      ...this.state,
+      errorInputs: newErrorInput,
+    });
+  }
+
+  removeErrorInputState = input => {
+    this.setState({
+      ...this.state,
+      errorInputs: this.state.errorInputs.filter(errIn => errIn !== input),
+    });
+  }
+
+  componentDidUpdate(prevProps) {
     this.props.saveCartToLocalStorage(this.props.orderDetails);
+    if(this.props.name
+      && prevProps.name !== this.props.name) this.removeErrorInputState('name');
+
+    if(this.props.lastname
+      && prevProps.lastname !== this.props.lastname) this.removeErrorInputState('lastname');
+
+    if(this.props.phone
+      && this.props.phone.length >= 9
+      && prevProps.phone !== this.props.phone) this.removeErrorInputState('phone');
+
+    if(this.props.email
+      && this.props.email.split('@').length === 2
+      && this.props.email.indexOf(' ') === -1
+      && prevProps.email !== this.props.email
+      && this.props.email.split('.').length === 2
+      && this.props.email.split('.')[1] !== '') this.removeErrorInputState('email');
   }
 
   render() {
@@ -55,6 +101,7 @@ class CartForm extends React.Component {
                 e.currentTarget.value
               )}
             required='required'
+            className={this.state.errorInputs.indexOf('name') !== -1 ? styles.error : null}
           />
           <label htmlFor='lastname'>Last Name</label>
           <input
@@ -68,6 +115,7 @@ class CartForm extends React.Component {
                 e.currentTarget.value
               )}
             required='required'
+            className={this.state.errorInputs.indexOf('lastname') !== -1 ? styles.error : null}
           />
           <label htmlFor='email'>E-mail</label>
           <input
@@ -81,6 +129,7 @@ class CartForm extends React.Component {
                 e.currentTarget.value
               )}
             required='required'
+            className={this.state.errorInputs.indexOf('email') !== -1 ? styles.error : null}
           />
           <label htmlFor='phone'>Phone No.</label>
           <input
@@ -94,6 +143,7 @@ class CartForm extends React.Component {
                 e.currentTarget.value
               )}
             required='required'
+            className={this.state.errorInputs.indexOf('phone') !== -1 ? styles.error : null}
           />
           <Button
             Type='div'
