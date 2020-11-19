@@ -31,7 +31,7 @@ app.use('*', (req, res) => {
 });
 
 /* MONGOOSE */
-const dbURI = process.env.NODE_ENV === 'production' ? `mongodb+srv://${process.env.LOGIN_DB}:${process.env.PASSWORD_DB}@cluster0.dorur.azure.mongodb.net/onlineGameShop?retryWrites=true&w=majority` : 'mongodb://localhost:27017/onlineShop';
+const dbURI = process.env.NODE_ENV === 'production' ? `mongodb+srv://${process.env.LOGIN_DB}:${process.env.PASSWORD_DB}@cluster0.dorur.azure.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority` : 'mongodb://localhost:27017/onlineShop';
 
 mongoose.connect( dbURI, {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
