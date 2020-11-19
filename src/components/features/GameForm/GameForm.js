@@ -70,7 +70,7 @@ class GameForm extends React.Component {
 
   render() {
 
-    const {_id, description, genres, photos} = this.props;
+    const {_id, description, genres, photos, price} = this.props;
 
     return (
       <div>
@@ -92,7 +92,7 @@ class GameForm extends React.Component {
             </ul>
             <p className={styles.description}>{description}</p>
             <PhotoCarousel photos={photos} />
-            <p className={styles.price}>Price: {this.state.totalPrice || this.props.price} €</p>
+            <p className={styles.price}>Price: {this.state.totalPrice || price} €</p>
             <NumberInput
               qty={this.state.qty}
               className='alignRight'
@@ -105,10 +105,10 @@ class GameForm extends React.Component {
                 if(this.state.totalPrice === undefined) {
                   this.setState({
                     ...this.state,
-                    totalPrice: this.props.price * this.state.qty,
+                    totalPrice: price * this.state.qty,
                   });
                 }
-                this.SubmitGameToCart(_id, this.props.price * this.state.qty, this.state.qty);
+                this.SubmitGameToCart(_id, price * this.state.qty, this.state.qty);
               }
               }>Buy it now</Button>
             </div>
