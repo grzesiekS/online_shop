@@ -14,10 +14,10 @@ class CartForm extends React.Component {
   submitForm = () => {
     if(this.props.name
       && this.props.lastname
-      && this.props.email
       && this.props.phone
       && this.props.phone.length >= 9
       && this.props.gamesInCartCount
+      && this.props.email
       && this.props.email.split('@').length === 2
       && this.props.email.indexOf(' ') === -1) {
       this.props.changePromptStatus('success');
@@ -43,50 +43,54 @@ class CartForm extends React.Component {
         <h1 className={styles.title}>Your order</h1>
         <CartItems />
         <form className={styles.cartForm}>
-          <label htmlFor="name">Name</label>
+          <label htmlFor='name'>Name</label>
           <input
-            id="name"
-            type="text"
+            id='name'
+            type='text'
             value={this.props.name || ''}
+            placeholder='John'
             onChange={e =>
               this.props.updateOrderDetails(
-                Object.keys(this.props).find(key => this.props[key] === this.props.name),
+                Object.keys(this.props).find(key => key === 'name'),
                 e.currentTarget.value
               )}
             required='required'
           />
-          <label htmlFor="lastname">Last Name</label>
+          <label htmlFor='lastname'>Last Name</label>
           <input
-            id="lastname"
-            type="text"
+            id='lastname'
+            type='text'
             value={this.props.lastname || ''}
+            placeholder='Doe'
             onChange={e =>
               this.props.updateOrderDetails(
-                Object.keys(this.props).find(key => this.props[key] === this.props.lastname),
+                Object.keys(this.props).find(key => key === 'lastname'),
                 e.currentTarget.value
               )}
             required='required'
           />
-          <label htmlFor="email">E-mail</label>
+          <label htmlFor='email'>E-mail</label>
           <input
-            id="email"
-            type="email"
+            id='email'
+            type='email'
             value={this.props.email || ''}
+            placeholder='johndoe@email.com'
             onChange={e =>
               this.props.updateOrderDetails(
-                Object.keys(this.props).find(key => this.props[key] === this.props.email),
+                Object.keys(this.props).find(key => key === 'email'),
                 e.currentTarget.value
               )}
             required='required'
           />
-          <label htmlFor="phone">Phone No.</label>
+          <label htmlFor='phone'>Phone No.</label>
           <input
-            id="phone"
-            type="tel"
+            id='phone'
+            type='tel'
             value={this.props.phone || ''}
+            placeholder='123456789'
             onChange={e =>
               this.props.updateOrderDetails(
-                Object.keys(this.props).find(key => this.props[key] === this.props.phone),
+                Object.keys(this.props).find(key => key === 'phone'),
                 e.currentTarget.value
               )}
             required='required'

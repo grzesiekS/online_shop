@@ -1,5 +1,12 @@
 @import "../../../styles/settings.scss";
 
+button {
+  background-color: $button-bg-color;
+  font-family: $text-font-family;
+  font-size: 1.4em;
+  font-weight: $text-font-weight;
+}
+
 .button {
   display: inline-block;
   text-decoration: none;
