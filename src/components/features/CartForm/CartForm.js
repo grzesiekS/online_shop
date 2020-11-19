@@ -16,6 +16,7 @@ class CartForm extends React.Component {
       && this.props.lastname
       && this.props.email
       && this.props.phone
+      && this.props.phone.length >= 9
       && this.props.gamesInCartCount
       && this.props.email.split('@').length === 2
       && this.props.email.indexOf(' ') === -1) {
