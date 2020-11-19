@@ -7,7 +7,7 @@ exports.sendOrder = async (req, res) => {
     const bodySanitize = sanitize(req.body);
     const { name, lastname, email, phone, gamesInCart } = bodySanitize;
 
-    if(email.split('@').length === 2) {
+    if(email.split('@').length === 2 && email.indexOf(' ') === -1) {
       const newOrder = new Order(
         {
           name: name,
@@ -20,7 +20,7 @@ exports.sendOrder = async (req, res) => {
 
       await newOrder.save();
       res.json({ message: 'OK' });
-    }
+    } else res.status(404).json({ post: 'error'});
 
   } catch(err) {
     res.status(500).json(err);

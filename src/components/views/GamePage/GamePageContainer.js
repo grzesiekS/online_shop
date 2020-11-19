@@ -18,7 +18,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addGameToCart: (id, price, qty) => dispatch(addGameToCart({id, price, qty})),
+  addGameToCart: (id, price, qty, gameInCartId) => dispatch(addGameToCart({id, price, qty, gameInCartId})),
   changePromptStatus: status => dispatch(changePromptStatus({status})),
   getGenresApi: () => dispatch(fetchAllGenres()),
   getSelectedGameApi: id => dispatch(fetchSelectedGame(id)),

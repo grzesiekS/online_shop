@@ -17,7 +17,8 @@ class CartForm extends React.Component {
       && this.props.email
       && this.props.phone
       && this.props.gamesInCartCount
-      && this.props.email.split('@').length === 2) {
+      && this.props.email.split('@').length === 2
+      && this.props.email.indexOf(' ') === -1) {
       this.props.changePromptStatus('success');
       this.props.addNewOrder(this.props.orderDetails);
     } else {
