@@ -13,6 +13,7 @@
   padding: 7px;
   margin-bottom: 15px;
   justify-content: center;
+  animation: fadeIn $animationTime-long;
 }
 
 .name, .qty, .price {
@@ -82,6 +83,28 @@
 
   &:nth-child(n) {
     font-size: 25px;
+  }
+}
+
+.dots {
+  flex: 100%;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .dotIcon {
+    &.active {
+      color: $cartItems-dot-active-color;
+    }
   }
 }
 
