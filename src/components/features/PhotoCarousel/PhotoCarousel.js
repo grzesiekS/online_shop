@@ -17,13 +17,34 @@ class PhotoCarousel extends React.Component {
     });
   }
 
+  nextPhoto = () => {
+    this.setState({
+      ...this.state,
+      activePhoto:
+        this.state.activePhoto === this.props.photos.length - 1
+          ? this.state.activePhoto
+          : this.state.activePhoto + 1,
+    });
+  }
+
+  previousPhoto = () => {
+    this.setState({
+      ...this.state,
+      activePhoto: this.state.activePhoto === 0 ? 0 : this.state.activePhoto - 1,
+    });
+  }
+
   render() {
 
     const {photos} = this.props;
 
     return (
       <div className={styles.container}>
-        <PhotoDisplay photo={photos[this.state.activePhoto]} />
+        <PhotoDisplay
+          photo={photos[this.state.activePhoto]}
+          rightAction={() => this.nextPhoto()}
+          leftAction={() => this.previousPhoto()}
+        />
         <div className={styles.flexBox}>
           {photos.map(photo => (
             <div className={styles.imgCarousel} key={photos.indexOf(photo)}>
