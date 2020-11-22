@@ -2,7 +2,7 @@
 @import "../../../styles//animations.scss";
 
 .container {
-  border: $border-width solid white;
+  border: $border-width solid $newReleaseInfo-border-color;
   padding: 15px;
   text-align: center;
 }
