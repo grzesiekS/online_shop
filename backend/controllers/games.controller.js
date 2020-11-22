@@ -2,7 +2,8 @@ const Game = require('../models/games.model');
 
 exports.loadAll = async (req, res) => {
   try {
-    const result = await Game.find();
+    const currentDate = new Date();
+    const result = await Game.find({ releaseDate: {$lte: currentDate} });
     if(!result) res.status(404).json({ games: 'Not found'});
     else res.json(result);
   } catch(err) {

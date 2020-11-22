@@ -7,6 +7,7 @@ const gameSchema = new mongoose.Schema({
   photos: { type: Array },
   descriptiobn: { type: String, required: true },
   genres: { type: Array, required: true },
+  releaseDate: { type: Date, required: true },
 });
 
 module.exports = mongoose.model('Game', gameSchema);
