@@ -12,6 +12,14 @@
 .options {
   flex: 15%;
   margin-right: 50px;
+
+  div:nth-child(n) {
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .games {

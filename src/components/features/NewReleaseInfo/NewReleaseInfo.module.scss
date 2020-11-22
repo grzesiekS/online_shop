@@ -1,0 +1,20 @@
+@import "../../../styles//settings.scss";
+@import "../../../styles//animations.scss";
+
+.container {
+  border: $border-width solid white;
+  padding: 15px;
+  text-align: center;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.time {
+  font-size: 38px;
+}
+
+.fadeIn {
+  animation: fadeIn $animationTime-long;
+}

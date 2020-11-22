@@ -11,6 +11,7 @@ import Option from '../Option/Option';
 import Game from '../Game/Game';
 import Button from '../../common/Button/Button';
 import Load from '../../common/Load/Load';
+import NewReleaseInfo from '../NewReleaseInfo/NewReleaseInfoContainer';
 
 class Games extends React.Component {
   state = {
@@ -81,6 +82,7 @@ class Games extends React.Component {
                   setOptionValue= {selectGenres}
                 />
               }
+              <NewReleaseInfo />
             </div>
             <div className={styles.games}>
               <h2 className={styles.title}>Games</h2>

@@ -3,6 +3,7 @@ import {API_URL} from '../config';
 
 /* SELECTORS */
 export const getNewReleases = ({newReleases}) => newReleases.data;
+export const getLoadStatus = ({newReleases}) => newReleases.loading;
 
 /* ACTIONS */
 
