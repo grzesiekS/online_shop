@@ -25,7 +25,9 @@ exports.loadSelected = async (req, res) => {
 exports.loadNewReleases = async (req, res) => {
   try {
     const currentDate = new Date();
-    const result = await Game.find({ releaseDate: {$gt: currentDate} });
+    const result = await Game
+      .find({ releaseDate: {$gt: currentDate} })
+      .select('name releaseDate');
     if(!result) res.status(404).json({ games: 'Not found' });
     else res.json(result);
   } catch(err) {
