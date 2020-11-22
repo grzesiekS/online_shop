@@ -13,8 +13,16 @@
 
 .time {
   font-size: 38px;
+  margin: 15px 0;
 }
 
 .fadeIn {
   animation: fadeIn $animationTime-long;
+}
+
+.newReleaseImg {
+  object-fit: cover;
+  border-radius: 20px;
+  width: 100%;
+  height: $game-image-height;
 }

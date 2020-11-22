@@ -27,7 +27,7 @@ exports.loadNewReleases = async (req, res) => {
     const currentDate = new Date();
     const result = await Game
       .find({ releaseDate: {$gt: currentDate} })
-      .select('name releaseDate');
+      .select('name releaseDate photos');
     if(!result) res.status(404).json({ games: 'Not found' });
     else res.json(result);
   } catch(err) {

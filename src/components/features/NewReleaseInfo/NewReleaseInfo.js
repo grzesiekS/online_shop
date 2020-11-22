@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {randomImageSelection} from '../../../utils/randomImage';
+
 import styles from './NewReleaseInfo.module.scss';
 import Load from '../../common/Load/Load';
 
@@ -9,14 +11,19 @@ class NewReleaseInfo extends React.Component {
     currentData: 0,
     date: new Date().getTime(),
     animationStyle: false,
+    selectedPhoto: null,
   }
 
   componentDidMount() {
     const {fetchAllNewReleases} = this.props;
 
     fetchAllNewReleases();
+
+    this.setNewPhoto();
+
     setInterval(() => {
       this.setNextData();
+      this.setNewPhoto();
     }, 10000);
   }
 
@@ -25,7 +32,7 @@ class NewReleaseInfo extends React.Component {
       this.setAnimation();
       setTimeout(() => {
         this.setAnimation();
-      }, 2000);
+      }, 1000);
     }
   }
 
@@ -43,6 +50,15 @@ class NewReleaseInfo extends React.Component {
       ...this.state,
       animationStyle: !this.state.animationStyle,
     });
+  }
+
+  setNewPhoto = () => {
+    if(this.props.newReleases !== undefined) {
+      this.setState({
+        ...this.state,
+        selectedPhoto: randomImageSelection(this.props.newReleases[this.state.currentData].photos),
+      });
+    }
   }
 
   countDays = releaseDate => (
@@ -65,8 +81,20 @@ class NewReleaseInfo extends React.Component {
           <div className={styles.container}>
             <div className={this.state.animationStyle ? styles.fadeIn : null}>
               <h2 className={styles.title}>{newReleases[this.state.currentData].name}</h2>
+              <img
+                className={styles.newReleaseImg}
+                src={this.state.selectedPhoto}
+                alt='new geme'
+              />
               <p className={styles.time}>{this.countDays(new Date(newReleases[this.state.currentData].releaseDate).getTime())}</p>
-              <p className={styles.subTitle}>Days to release</p>
+              <p className={styles.subTitle}>
+                {this.countDays(new Date(newReleases[this.state.currentData].releaseDate).getTime()) === 1
+                  ?
+                  `Day to release`
+                  :
+                  `Days to release`
+                }
+              </p>
             </div>
           </div>
     );
@@ -77,6 +105,7 @@ NewReleaseInfo.propTypes = {
   fetchAllNewReleases: PropTypes.func,
   newReleases: PropTypes.array,
   getLoadStatus: PropTypes.object,
+  photos: PropTypes.array,
 };
 
 NewReleaseInfo.defaultProps = {
