@@ -61,6 +61,10 @@ class TopBar extends React.Component {
 
   }
 
+  componentDidUpdate() {
+    if(!this.state.activeSearch && this.props.searchValue !== '') this.props.changeSearchValue('');
+  }
+
   render () {
 
     const {changeSearchValue, searchValue} = this.props;
