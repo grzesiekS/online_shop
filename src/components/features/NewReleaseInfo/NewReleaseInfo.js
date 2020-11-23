@@ -23,7 +23,6 @@ class NewReleaseInfo extends React.Component {
 
     setInterval(() => {
       this.setNextData();
-      this.setNewPhoto();
     }, 10000);
   }
 
@@ -38,9 +37,11 @@ class NewReleaseInfo extends React.Component {
 
   setNextData = () => {
     if(this.props.newReleases !== undefined) {
+      const newData = this.state.currentData === this.props.newReleases.length - 1 ? 0 : this.state.currentData + 1;
       this.setState({
         ...this.state,
-        currentData: this.state.currentData === this.props.newReleases.length - 1 ? 0 : this.state.currentData + 1,
+        currentData: newData,
+        selectedPhoto: randomImageSelection(this.props.newReleases[newData].photos),
       });
     }
   }
