@@ -26,6 +26,17 @@ class Games extends React.Component {
     });
   }
 
+  genresCount = () => {
+    const genresCount = {};
+    this.props.games.forEach(game => {
+      game.genres.forEach(genre => {
+        if(genresCount[genre] === undefined) genresCount[genre] = 1;
+        else genresCount[genre]++;
+      });
+    });
+    return genresCount;
+  }
+
   componentDidMount() {
     const {getAllGenres, getAllGames} = this.props;
 
@@ -80,6 +91,7 @@ class Games extends React.Component {
                   values={genres}
                   currentValue={selectedGenres}
                   setOptionValue= {selectGenres}
+                  valuesCount={this.genresCount()}
                 />
               }
               <NewReleaseInfo />
