@@ -62,7 +62,7 @@ class NewReleaseInfo extends React.Component {
   }
 
   countDays = releaseDate => (
-    Math.floor((releaseDate - this.state.date) / (1000*60*60*24))
+    Math.ceil((releaseDate - this.state.date) / (1000*60*60*24))
   );
 
   render() {
