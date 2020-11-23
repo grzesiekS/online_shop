@@ -77,7 +77,7 @@ class TopBar extends React.Component {
           </Button>
         </div>
         <nav>
-          <ul className={!this.state.navBar ? clsx(styles.navigation, styles.disable) : styles.navigation}>
+          <ul className={!this.state.navBar ? clsx(styles.navigation, styles.disable) : clsx(styles.navigation, styles.show)}>
             <li>
               <Link aria-label='logo' to='/'>
                 <FontAwesomeIcon icon={faGamepad} className={styles.logo} />
@@ -102,7 +102,7 @@ class TopBar extends React.Component {
             </li>
           </ul>
         </nav>
-        <div className={!this.state.navBar ? clsx(styles.shoppingCart, styles.disable) : styles.shoppingCart}>
+        <div className={!this.state.navBar ? clsx(styles.shoppingCart, styles.disable) : clsx(styles.shoppingCart, styles.show)}>
           <ShoppingCart />
         </div>
       </div>

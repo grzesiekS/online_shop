@@ -22,7 +22,6 @@
   list-style-type: none;
   padding: 0;
   margin-top: 35px;
-  animation: fadeIn $animationTime-long;
 
   li {
     display: inline-block;
@@ -42,6 +41,10 @@
 
   &.disable {
     display: none;
+  }
+
+  &.show {
+    animation: fadeIn $animationTime-long;
   }
 }
 
@@ -67,6 +70,10 @@
 .shoppingCart {
   &.disable {
     display: none;
+  }
+
+  &.show {
+    animation: fadeIn $animationTime-long;
   }
 }
 
