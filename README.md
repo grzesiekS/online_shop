@@ -1,4 +1,4 @@
-# App Link
+# Webpage link
 https://onlinegameshop.herokuapp.com/
 
 # Getting Started with Create React App
