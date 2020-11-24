@@ -67,9 +67,13 @@
   }
 }
 
-@media (max-width: 975px) {
+@media (max-width: 1200px) {
   .container {
     margin-right: 0;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
   }
 }
 
