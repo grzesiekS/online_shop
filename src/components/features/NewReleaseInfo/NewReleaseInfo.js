@@ -103,6 +103,7 @@ class NewReleaseInfo extends React.Component {
                 width='200'
                 height='450'
               />
+
               <p className={styles.time}>{this.countDays(new Date(newReleases[this.state.currentData].releaseDate).getTime())}</p>
               <p className={styles.subTitle}>
                 {this.countDays(new Date(newReleases[this.state.currentData].releaseDate).getTime()) === 1
