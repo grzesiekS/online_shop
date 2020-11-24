@@ -10,20 +10,31 @@ class NewReleaseInfo extends React.Component {
   state = {
     currentData: 0,
     date: new Date().getTime(),
-    animationStyle: false,
+    animationStyle: null,
     selectedPhoto: null,
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const {fetchAllNewReleases} = this.props;
 
-    fetchAllNewReleases();
+    this.mounted = true;
 
-    this.setNewPhoto();
+    await fetchAllNewReleases().then(() => {
+      if(this.mounted) {
+        this.setNewPhoto();
 
-    setInterval(() => {
-      this.setNextData();
-    }, 10000);
+        setTimeout(() => {
+          this.setState({
+            ...this.state,
+            animationStyle: false,
+          });
+        },8000);
+
+        this.newReleasesInter = setInterval(() => {
+          this.setNextData();
+        }, 10000);
+      }
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -31,8 +42,13 @@ class NewReleaseInfo extends React.Component {
       this.setAnimation();
       setTimeout(() => {
         this.setAnimation();
-      }, 1000);
+      }, 8000);
     }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+    clearInterval(this.newReleasesInter);
   }
 
   setNextData = () => {
@@ -63,7 +79,7 @@ class NewReleaseInfo extends React.Component {
   }
 
   countDays = releaseDate => (
-    Math.ceil((releaseDate - this.state.date) / (1000*60*60*24))
+    Math.floor((releaseDate - this.state.date) / (1000*60*60*24))
   );
 
   render() {
@@ -80,7 +96,7 @@ class NewReleaseInfo extends React.Component {
           null
           :
           <div className={styles.container}>
-            <div className={this.state.animationStyle ? styles.fadeIn : null}>
+            <div className={this.state.animationStyle ? styles.fadeIn : this.state.animationStyle !== null ? styles.fadeOut : null}>
               <h2 className={styles.title}>{newReleases[this.state.currentData].name}</h2>
               <img
                 className={styles.newReleaseImg}

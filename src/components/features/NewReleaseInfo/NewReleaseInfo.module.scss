@@ -17,7 +17,11 @@
 }
 
 .fadeIn {
-  animation: fadeIn $animationTime-long ease-in;
+  animation: fadeIn $animationTime-vlong ease-in;
+}
+
+.fadeOut {
+  animation: fadeOut $animationTime-vlong ease-in;
 }
 
 .newReleaseImg {
