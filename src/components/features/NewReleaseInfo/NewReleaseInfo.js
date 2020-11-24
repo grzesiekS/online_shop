@@ -14,27 +14,23 @@ class NewReleaseInfo extends React.Component {
     selectedPhoto: null,
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const {fetchAllNewReleases} = this.props;
 
-    this.mounted = true;
+    fetchAllNewReleases();
 
-    await fetchAllNewReleases().then(() => {
-      if(this.mounted) {
-        this.setNewPhoto();
+    this.setNewPhoto();
 
-        setTimeout(() => {
-          this.setState({
-            ...this.state,
-            animationStyle: false,
-          });
-        },8000);
+    setTimeout(() => {
+      this.setState({
+        ...this.state,
+        animationStyle: false,
+      });
+    },8000);
 
-        this.newReleasesInter = setInterval(() => {
-          this.setNextData();
-        }, 10000);
-      }
-    });
+    this.newReleasesInter = setInterval(() => {
+      this.setNextData();
+    }, 10000);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -47,8 +43,10 @@ class NewReleaseInfo extends React.Component {
   }
 
   componentWillUnmount() {
-    this.mounted = false;
     clearInterval(this.newReleasesInter);
+    this.setState = (state, callback) => {
+      return;
+    };
   }
 
   setNextData = () => {
@@ -79,7 +77,7 @@ class NewReleaseInfo extends React.Component {
   }
 
   countDays = releaseDate => (
-    Math.floor((releaseDate - this.state.date) / (1000*60*60*24))
+    Math.ceil((releaseDate - this.state.date) / (1000*60*60*24))
   );
 
   render() {
@@ -102,6 +100,8 @@ class NewReleaseInfo extends React.Component {
                 className={styles.newReleaseImg}
                 src={this.state.selectedPhoto}
                 alt='new geme'
+                width='200'
+                height='450'
               />
               <p className={styles.time}>{this.countDays(new Date(newReleases[this.state.currentData].releaseDate).getTime())}</p>
               <p className={styles.subTitle}>
