@@ -55,7 +55,8 @@ class NewReleaseInfo extends React.Component {
       this.setState({
         ...this.state,
         currentData: newData,
-        selectedPhoto: randomImageSelection(this.props.newReleases[newData].photos),
+        selectedPhoto: this.props.newReleases[newData] !== undefined 
+          ? randomImageSelection(this.props.newReleases[newData].photos) : '',
       });
     }
   }
@@ -71,7 +72,8 @@ class NewReleaseInfo extends React.Component {
     if(this.props.newReleases !== undefined) {
       this.setState({
         ...this.state,
-        selectedPhoto: randomImageSelection(this.props.newReleases[this.state.currentData].photos),
+        selectedPhoto: this.props.newReleases[this.state.currentData] !== undefined 
+          ? randomImageSelection(this.props.newReleases[this.state.currentData].photos) : '',
       });
     }
   }
@@ -128,6 +130,7 @@ NewReleaseInfo.propTypes = {
 
 NewReleaseInfo.defaultProps = {
   fetchAllNewReleases: () => {},
+  photos: [],
 };
 
 export default NewReleaseInfo;
